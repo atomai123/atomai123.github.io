@@ -13,7 +13,10 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] 开始备份..." >> $LOG_FILE
 tar -czf $BACKUP_DIR/blog-backup-$DATE.tar.gz \
   $SOURCE_DIR/articles \
   $SOURCE_DIR/images \
-  $SOURCE_DIR/config \
+  $SOURCE_DIR/content \
+  $SOURCE_DIR/layouts \
+  $SOURCE_DIR/static \
+  $SOURCE_DIR/hugo.toml \
   $SOURCE_DIR/scripts 2>> $LOG_FILE
 
 if [ $? -eq 0 ]; then

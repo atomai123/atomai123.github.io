@@ -1,0 +1,13 @@
+[2026-02-10 02:03:07] 开始备份...
+tar: Removing leading `/' from member names
+tar: /root/projects/my-blog/config: Cannot stat: No such file or directory
+tar: Removing leading `/' from hard link targets
+tar: Exiting with failure status due to previous errors
+[2026-02-10 02:03:07] 备份失败！
+[2026-02-10 02:04:23] 开始备份...
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+[2026-02-10 02:04:23] 备份成功: blog-backup-20260210.tar.gz
+[2026-02-10 02:04:23] 已清理30天前的旧备份
+[2026-02-10 02:04:23] 备份完成
+---
