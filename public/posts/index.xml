@@ -9,13 +9,6 @@
     <atom:link href="https://atomai123.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://atomai123.github.io/posts/first-post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://atomai123.github.io/posts/first-post/</guid>
-      <description>&lt;h1 id=&#34;欢迎来到我的博客&#34;&gt;欢迎来到我的博客！🎉&lt;/h1&gt;&#xA;&lt;p&gt;这是我的第一篇博客文章。感谢你的访问！&lt;/p&gt;&#xA;&lt;h2 id=&#34;关于这个博客&#34;&gt;关于这个博客&lt;/h2&gt;&#xA;&lt;p&gt;这是使用 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 搭建的静态博客，部署在 &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; 上。&lt;/p&gt;&#xA;&lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🚀 快速：Hugo 是最快的静态网站生成器之一&lt;/li&gt;&#xA;&lt;li&gt;📱 响应式：支持手机、平板、电脑&lt;/li&gt;&#xA;&lt;li&gt;🎨 主题：使用 Ananke 主题&lt;/li&gt;&#xA;&lt;li&gt;💾 自动化：包含自动备份和监控&lt;/li&gt;&#xA;&lt;li&gt;📝 Markdown：使用 Markdown 写作&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;内容&#34;&gt;内容&lt;/h2&gt;&#xA;&lt;p&gt;这里会分享：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;💻 技术文章&lt;/li&gt;&#xA;&lt;li&gt;🤖 AI 相关&lt;/li&gt;&#xA;&lt;li&gt;📚 学习笔记&lt;/li&gt;&#xA;&lt;li&gt;🛠️ 工具分享&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;联系我&#34;&gt;联系我&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/%E5%8E%9F%E5%AD%90%E5%90%9B&#34;&gt;@原子君&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Email: &lt;a href=&#34;mailto:your-email@example.com&#34;&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;欢迎订阅我的 &lt;a href=&#34;https://atomai123.github.io/index.xml&#34;&gt;RSS feed&lt;/a&gt;！&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
       <link>https://atomai123.github.io/posts/template/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://atomai123.github.io/posts/template/</guid>
