@@ -1,0 +1,607 @@
+---
+title: "零基础搭建个人博客：从零到上线的完整教程"
+date: 2026-02-10
+draft: false
+tags: ["Hugo", "GitHub Pages", "博客搭建", "完整教程", "踩坑记录"]
+categories: ["教程"]
+---
+
+## 前言
+
+今晚花了大约2小时，从零开始搭建了这个博客。过程中遇到了不少坑，所以决定把完整的步骤和遇到的问题都记录下来，帮助想搭建博客的朋友少走弯路。
+
+如果你也想搭建一个免费、快速、美观的个人博客，这篇文章就是为你准备的！
+
+<!--more-->
+
+## 为什么选择Hugo + GitHub Pages？
+
+在开始之前，先说说为什么选这个组合：
+
+### Hugo的优势
+
+- ⚡ **超快速度** - 构建只需几十毫秒
+- 📝 **Markdown写作** - 专注内容，格式简洁
+- 🎨 **主题丰富** - 大量现成主题可用
+- 🔧 **高度定制** - 完全可控的HTML/CSS
+
+### GitHub Pages的优势
+
+- 💰 **完全免费** - 无需购买服务器
+- 🚀 **自动部署** - 推送代码即发布
+- 📊 **全球CDN** - 访问速度快
+- 🔒 **HTTPS支持** - 自动配置SSL证书
+
+## 准备工作
+
+### 前置要求
+
+1. **GitHub账号** - 访问 https://github.com 注册
+2. **基本Git知识** - 会用基本命令即可
+3. **服务器/VPS** - 我用的是OpenClaw，本地电脑也行
+
+### 安装Hugo
+
+```bash
+# 下载Hugo extended版本（推荐）
+wget https://github.com/gohugoio/hugo/releases/download/v0.155.3/hugo_extended_0.155.3_linux-amd64.tar.gz
+
+# 解压
+tar -xzf hugo_extended_0.155.3_linux-amd64.tar.gz
+
+# 移动到系统路径
+sudo mv hugo /usr/local/bin/
+
+# 验证安装
+hugo version
+```
+
+**安装成功输出**：
+```
+hugo v0.155.3-8a858213b73907e823e2be2b5640a0ce4c04d295+extended linux/amd64 BuildDate=2026-02-08T16:42:20Z VendorInfo=gohugoio
+```
+
+## 第一步：创建博客项目
+
+### 初始化项目
+
+```bash
+# 创建项目目录
+mkdir -p ~/projects/my-blog
+cd ~/projects/my-blog
+
+# 初始化Git仓库
+git init
+
+# 配置Git用户信息（如果还没配置过）
+git config user.name "你的用户名"
+git config user.email "你的邮箱"
+```
+
+### 创建Hugo站点
+
+```bash
+# 创建Hugo站点
+hugo new site . --force
+
+# 查看生成的文件结构
+ls -la
+```
+
+**生成的文件结构**：
+```
+my-blog/
+├── archetypes/      # 内容模板
+├── content/         # 博客内容
+├── data/            # 数据文件
+├── layouts/         # 布局模板
+├── static/          # 静态资源
+├── themes/          # 主题目录
+└── hugo.toml       # 配置文件
+```
+
+## 第二步：配置博客
+
+### 编辑hugo.toml
+
+```bash
+vim hugo.toml
+```
+
+**基础配置**：
+```toml
+baseURL = "https://你的用户名.github.io/"
+languageCode = "zh-CN"
+title = "你的博客标题"
+
+[params]
+  description = "博客描述"
+  author = "你的名字"
+```
+
+### 创建第一篇文章
+
+```bash
+# 创建文章
+hugo new posts/first-post.md
+
+# 编辑文章
+vim content/posts/first-post.md
+```
+
+**文章格式**：
+```markdown
+---
+title: "第一篇文章"
+date: 2026-02-10
+draft: false
+---
+
+这是我的第一篇文章！
+```
+
+## 第三步：自定义设计
+
+### 创建自定义布局
+
+如果不使用主题，可以自己创建布局：
+
+**首页布局** (`layouts/index.html`)：
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+</head>
+<body>
+    <h1>{{ .Site.Title }}</h1>
+    {{ .Content }}
+</body>
+</html>
+```
+
+**单页布局** (`layouts/_default/single.html`)：
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+</head>
+<body>
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+</body>
+</html>
+```
+
+### 添加样式
+
+创建 `static/styles.css`：
+```css
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+```
+
+## 第四步：本地预览
+
+### 构建网站
+
+```bash
+# 构建网站
+hugo
+
+# 查看生成的文件
+ls -lh public/
+```
+
+**输出示例**：
+```
+Total in 26 ms
+ Pages            │ 12 
+ Paginator pages  │  0 
+ Static files     │  2
+```
+
+### 本地预览
+
+```bash
+# 启动开发服务器
+hugo server -D
+
+# 访问 http://localhost:1313
+```
+
+## 第五步：部署到GitHub Pages
+
+### 创建GitHub仓库
+
+1. 访问 https://github.com/new
+2. 仓库名：`你的用户名.github.io`（必须这个格式）
+3. 设置为Public
+4. 点击Create repository
+
+### 推送代码
+
+**方法1：使用HTTPS + Token**
+
+```bash
+# 生成Personal Access Token
+# 访问：https://github.com/settings/tokens
+# 勾选repo权限，生成token
+
+# 添加远程仓库（使用token）
+git remote add origin https://<你的token>@github.com/你的用户名/你的用户名.github.io.git
+
+# 推送代码
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+
+**方法2：使用SSH密钥**
+
+```bash
+# 生成SSH密钥
+ssh-keygen -t rsa -b 4096 -C "你的邮箱"
+
+# 查看公钥
+cat ~/.ssh/id_rsa.pub
+
+# 添加到GitHub
+# 访问：https://github.com/settings/ssh/new
+# 粘贴公钥内容
+
+# 推送代码
+git remote add origin git@github.com:你的用户名/你的用户名.github.io.git
+git push -u origin main
+```
+
+### 配置GitHub Pages
+
+1. 访问仓库Settings：https://github.com/你的用户名/你的用户名.github.io/settings/pages
+2. Source选择：Deploy from a branch
+3. Branch选择：main
+4. Folder选择：/ (root)
+5. 点击Save
+
+### 访问博客
+
+等待2-3分钟，访问：https://你的用户名.github.io/
+
+## 踩坑记录
+
+### 坑1：SSH密钥格式问题
+
+**问题**：GitHub拒绝ED25519格式的密钥
+
+**错误信息**：
+```
+Key is weak. GitHub recommends using ssh-keygen to generate a RSA key of at least 2048 bits.
+```
+
+**解决**：改用RSA 4096位密钥
+```bash
+ssh-keygen -t rsa -b 4096 -C "你的邮箱"
+```
+
+### 坑2：Token权限不足
+
+**问题**：Personal Access Token缺少workflow权限
+
+**错误信息**：
+```
+refusing to allow a Personal Access Token to create or update workflow
+```
+
+**解决**：
+1. 删除旧token
+2. 重新生成，勾选`repo`权限（不需要workflow）
+3. 或者删除GitHub Actions配置文件
+
+### 坑3：主题兼容性问题
+
+**问题**：Ananke主题的`toc`短代码导致构建失败
+
+**错误信息**：
+```
+Your site is having problems building: The tag toc shortcode on your site doesn't have a closing tag.
+```
+
+**解决**：移除主题，使用自定义布局
+```bash
+rm -rf themes/ananke
+```
+
+### 坑4：404错误
+
+**问题**：访问博客返回404
+
+**原因**：GitHub Pages配置了`/public`子目录，但文件在根目录
+
+**解决**：
+1. 确保GitHub Pages配置为`/ (root)`
+2. 或将public目录内容复制到根目录
+
+### 坑5：缓存问题
+
+**问题**：修改后刷新还是旧版本
+
+**解决**：
+1. 硬刷新：Ctrl+F5
+2. 清除浏览器缓存
+3. 等待2-3分钟让GitHub Pages重新构建
+
+## 自动化脚本
+
+### 每日自动备份
+
+创建 `scripts/backup.sh`：
+```bash
+#!/bin/bash
+DATE=$(date +%Y%m%d)
+BACKUP_DIR=~/projects/my-blog/backup
+SOURCE_DIR=~/projects/my-blog
+
+tar -czf $BACKUP_DIR/blog-backup-$DATE.tar.gz \
+  $SOURCE_DIR/content \
+  $SOURCE_DIR/layouts \
+  $SOURCE_DIR/static \
+  $SOURCE_DIR/hugo.toml
+
+# 保留最近30天
+find $BACKUP_DIR -name "blog-backup-*.tar.gz" -mtime +30 -delete
+```
+
+添加到定时任务：
+```bash
+# 编辑crontab
+crontab -e
+
+# 添加：每天凌晨2点备份
+0 2 * * * /root/projects/my-blog/scripts/backup.sh
+```
+
+### 每小时监控
+
+创建 `scripts/monitor.sh`：
+```bash
+#!/bin/bash
+LOG_FILE=~/projects/my-blog/scripts/monitor.log
+URL="https://你的用户名.github.io/"
+
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" $URL)
+
+if [ $STATUS -eq 200 ]; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✅ 博客正常" >> $LOG_FILE
+else
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ❌ 博客异常 (HTTP $STATUS)" >> $LOG_FILE
+fi
+```
+
+添加到定时任务：
+```bash
+# 每小时检查
+0 * * * * /root/projects/my-blog/scripts/monitor.sh
+```
+
+## 博客装修
+
+### 添加渐变背景
+
+编辑 `layouts/index.html`，添加CSS：
+```css
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+```
+
+### 添加卡片布局
+
+```css
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header, main, article {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+}
+```
+
+### 添加动画效果
+
+```css
+article:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+    transition: all 0.3s;
+}
+```
+
+## 写作流程
+
+### 新建文章
+
+```bash
+# 创建文章
+hugo new posts/my-new-post.md
+
+# 编辑文章
+vim content/posts/my-new-post.md
+```
+
+### 本地预览
+
+```bash
+# 启动开发服务器
+hugo server -D
+
+# 访问 http://localhost:1313
+```
+
+### 发布文章
+
+```bash
+# 构建
+hugo
+
+# 如果不使用GitHub Actions，需要复制文件
+cp -r public/* ./
+
+# 提交并推送
+git add .
+git commit -m "Add new post"
+git push
+```
+
+## 高级功能（可选）
+
+### 添加评论系统
+
+使用 [Giscus](https://giscus.app/)：
+```html
+<script src="https://giscus.app/client.js"
+        data-repo="你的用户名/你的用户名.github.io"
+        data-repo-id="..."
+        data-category="Announcements"
+        data-category-id="..."
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+```
+
+### 添加Google Analytics
+
+在 `layouts/partials/analytics.html`：
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+### 添加RSS订阅
+
+在 `hugo.toml`：
+```toml
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+```
+
+## 性能优化
+
+### 图片优化
+
+```bash
+# 转换为WebP格式
+cwebp -q 80 input.jpg -o output.webp
+```
+
+### 启用压缩
+
+在 `hugo.toml`：
+```toml
+[minify]
+  minifyOutput = true
+```
+
+### CDN加速
+
+GitHub Pages自带全球CDN，无需额外配置。
+
+## 总结
+
+### 完成清单
+
+- ✅ 安装Hugo
+- ✅ 创建博客项目
+- ✅ 配置博客信息
+- ✅ 创建内容
+- ✅ 自定义设计
+- ✅ 部署到GitHub Pages
+- ✅ 配置自动化脚本
+
+### 最终效果
+
+- 🌐 博客地址：https://atomai123.github.io/
+- ⚡ 构建时间：~26ms
+- 📄 页面数量：11个
+- 💾 自动备份：每天凌晨2点
+- 🔍 自动监控：每小时检查
+
+### 学到的经验
+
+1. **文档很重要** - 遇到问题时，官方文档是最好的参考
+2. **耐心是关键** - 部署可能需要多次尝试
+3. **自动化很值** - 花时间配置自动化，长期收益很大
+4. **简单最美** - 不需要复杂主题，简洁的布局反而更好
+
+## 下一步
+
+### 短期计划
+
+- [ ] 添加评论系统
+- [ ] 添加暗黑模式
+- [ ] 优化SEO
+- [ ] 添加更多文章
+
+### 长期规划
+
+- [ ] 添加搜索功能
+- [ ] 多语言支持
+- [ ] 邮件订阅
+- [ ] 性能监控
+
+## 参考资源
+
+- [Hugo官方文档](https://gohugo.io/documentation/)
+- [GitHub Pages文档](https://docs.github.com/pages)
+- [Markdown语法指南](https://www.markdownguide.org/)
+- [Git教程](https://git-scm.com/docs/gittutorial)
+
+## 结语
+
+搭建博客的过程虽然遇到了一些问题，但最终都解决了。现在我有了一个：
+
+- 🚀 快速的静态博客
+- 🎨 现代化的设计
+- 📱 完美的移动端适配
+- ⚡ 自动化的运维
+
+如果你也想搭建博客，希望这篇教程能帮到你！
+
+**有问题？欢迎在评论区留言，或者直接联系我！**
+
+---
+
+**相关文章**：
+- [使用Hugo和GitHub Pages搭建个人博客](/posts/how-i-built-this-blog/)
+- [欢迎来到原子君的技术博客](/posts/welcome/)
+
+**最后更新：2026-02-10**
