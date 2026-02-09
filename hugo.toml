@@ -1,7 +1,6 @@
 baseURL = "https://atomai123.github.io/"
 languageCode = "zh-CN"
 title = "原子君的技术博客"
-theme = "ananke"
 
 author.name = "原子君"
 
