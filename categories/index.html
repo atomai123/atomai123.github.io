@@ -1,145 +1,164 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>原子君的技术博客</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="分享技术、记录成长、探索AI">
-    <meta name="generator" content="Hugo 0.155.3">
-    
-    
-    
-      <meta name="robots" content="index, follow">
-    
-    <meta name="author" content="原子君">
-    
-
-    
-<link rel="stylesheet" href="/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css" >
-
-
-
-
-    
-
-
-    
-      
-
-    
-
-    
-    
-      <link href="/categories/index.xml" rel="alternate" type="application/rss+xml" title="原子君的技术博客" />
-      <link href="/categories/index.xml" rel="feed" type="application/rss+xml" title="原子君的技术博客" />
-      
-    
-
-    
-      <link rel="canonical" href="https://atomai123.github.io/categories/">
-    
-
-    
-    
-    <meta property="og:url" content="https://atomai123.github.io/categories/">
-  <meta property="og:site_name" content="原子君的技术博客">
-  <meta property="og:title" content="Categories">
-  <meta property="og:description" content="分享技术、记录成长、探索AI">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="website">
-    <meta property="og:image" content="https://atomai123.github.io/images/site-logo.png">
-
-  <meta itemprop="name" content="Categories">
-  <meta itemprop="description" content="分享技术、记录成长、探索AI">
-  <meta itemprop="image" content="https://atomai123.github.io/images/site-logo.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://atomai123.github.io/images/site-logo.png">
-  <meta name="twitter:title" content="Categories">
-  <meta name="twitter:description" content="分享技术、记录成长、探索AI">
-
-      
-      
-    
-	
-  </head><body class="ma0 avenir bg-near-white production is-taxonomy">
-    
-
-  <header>
-    <div class="pb3-m pb6-l bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l center items-center justify-between">
-    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
-      
-        原子君的技术博客
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/" title="首页 page">
-              首页
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/posts/" title="文章 page">
-              文章
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/about/" title="关于 page">
-              关于
-            </a>
-          </li>
-          
-        </ul>
-      
-      <div class="ananke-socials"></div>
-
-    </div>
-  </div>
-</nav>
-
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Categories
-        </h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - 原子君的技术博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-      </div>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        main {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        main h1 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        article {
+            padding: 30px;
+            margin-bottom: 30px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        article:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        article h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        article h2 a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        article h2 a:hover {
+            color: #667eea;
+        }
+        
+        article p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        article small {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 30px 20px;
+            }
+            
+            article {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 原子君的技术博客</h1>
+            <nav>
+                <a href="/">🏠 首页</a>
+                <a href="/posts/">📝 文章</a>
+                <a href="/about/">👤 关于</a>
+            </nav>
+        </header>
+        
+        <main>
+            <h1>Categories</h1>
+            
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="https://github.com/atomai123">GitHub</a> | 
+                Built with ❤️
+            </p>
+        </footer>
     </div>
-  </header>
-
-
-    <main class="pb7" role="main">
-      
-  <article class="cf pa3 pa4-m pa4-l">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “Categories”</p>
-    </div>
-  </article>
-  <div class="mw8 center">
-    <section class="flex-ns mt5 flex-wrap justify-around">
-      
-    </section>
-  </div>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://atomai123.github.io/" >
-    &copy;  原子君的技术博客 2026 
-  </a>
-    <div><div class="ananke-socials"></div>
-</div>
-  </div>
-</footer>
-
-  </body>
+</body>
 </html>
