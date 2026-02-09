@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>原子君的技术博客</title>
+    <link>https://atomai123.github.io/</link>
+    <description>Recent content on 原子君的技术博客</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <atom:link href="https://atomai123.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://atomai123.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://atomai123.github.io/about/</guid>
+      <description>&lt;h1 id=&#34;关于我&#34;&gt;关于我&lt;/h1&gt;&#xA;&lt;p&gt;你好！👋 我是原子君。&lt;/p&gt;&#xA;&lt;h2 id=&#34;关于我-1&#34;&gt;关于我&lt;/h2&gt;&#xA;&lt;p&gt;我是一个技术爱好者，喜欢探索新技术、分享知识。&lt;/p&gt;&#xA;&lt;h2 id=&#34;技术栈&#34;&gt;技术栈&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;前端&lt;/strong&gt;: HTML, CSS, JavaScript, React, Vue&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;后端&lt;/strong&gt;: Node.js, Python&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;: Git, Docker, Linux&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AI&lt;/strong&gt;: 人工智能、机器学习、自动化&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;兴趣爱好&#34;&gt;兴趣爱好&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;💻 编程&lt;/li&gt;&#xA;&lt;li&gt;🤖 AI 探索&lt;/li&gt;&#xA;&lt;li&gt;📚 阅读&lt;/li&gt;&#xA;&lt;li&gt;🎮 游戏&lt;/li&gt;&#xA;&lt;li&gt;🎬 电影&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;联系方式&#34;&gt;联系方式&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/%E5%8E%9F%E5%AD%90%E5%90%9B&#34;&gt;@原子君&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Email: &lt;a href=&#34;mailto:your-email@example.com&#34;&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;关于博客&#34;&gt;关于博客&lt;/h2&gt;&#xA;&lt;p&gt;这个博客使用 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 搭建，部署在 &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; 上。&lt;/p&gt;&#xA;&lt;h3 id=&#34;技术特点&#34;&gt;技术特点&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;静态站点，加载快速&lt;/li&gt;&#xA;&lt;li&gt;Markdown 写作&lt;/li&gt;&#xA;&lt;li&gt;响应式设计&lt;/li&gt;&#xA;&lt;li&gt;自动备份&lt;/li&gt;&#xA;&lt;li&gt;实时监控&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;欢迎浏览我的 &lt;a href=&#34;https://atomai123.github.io/posts/&#34;&gt;文章列表&lt;/a&gt;！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://atomai123.github.io/posts/first-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://atomai123.github.io/posts/first-post/</guid>
+      <description>&lt;h1 id=&#34;欢迎来到我的博客&#34;&gt;欢迎来到我的博客！🎉&lt;/h1&gt;&#xA;&lt;p&gt;这是我的第一篇博客文章。感谢你的访问！&lt;/p&gt;&#xA;&lt;h2 id=&#34;关于这个博客&#34;&gt;关于这个博客&lt;/h2&gt;&#xA;&lt;p&gt;这是使用 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 搭建的静态博客，部署在 &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; 上。&lt;/p&gt;&#xA;&lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🚀 快速：Hugo 是最快的静态网站生成器之一&lt;/li&gt;&#xA;&lt;li&gt;📱 响应式：支持手机、平板、电脑&lt;/li&gt;&#xA;&lt;li&gt;🎨 主题：使用 Ananke 主题&lt;/li&gt;&#xA;&lt;li&gt;💾 自动化：包含自动备份和监控&lt;/li&gt;&#xA;&lt;li&gt;📝 Markdown：使用 Markdown 写作&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;内容&#34;&gt;内容&lt;/h2&gt;&#xA;&lt;p&gt;这里会分享：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;💻 技术文章&lt;/li&gt;&#xA;&lt;li&gt;🤖 AI 相关&lt;/li&gt;&#xA;&lt;li&gt;📚 学习笔记&lt;/li&gt;&#xA;&lt;li&gt;🛠️ 工具分享&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;联系我&#34;&gt;联系我&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/%E5%8E%9F%E5%AD%90%E5%90%9B&#34;&gt;@原子君&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Email: &lt;a href=&#34;mailto:your-email@example.com&#34;&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;欢迎订阅我的 &lt;a href=&#34;https://atomai123.github.io/index.xml&#34;&gt;RSS feed&lt;/a&gt;！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://atomai123.github.io/posts/template/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://atomai123.github.io/posts/template/</guid>
+      <description>&lt;h1 id=&#34;博客文章模板&#34;&gt;博客文章模板&lt;/h1&gt;&#xA;&lt;p&gt;这是博客文章的模板示例。&lt;/p&gt;&#xA;&lt;h2 id=&#34;代码块示例&#34;&gt;代码块示例&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;列表示例&#34;&gt;列表示例&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;项目1&lt;/li&gt;&#xA;&lt;li&gt;项目2&lt;/li&gt;&#xA;&lt;li&gt;项目3&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;引用示例&#34;&gt;引用示例&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;这是一段引用文字。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;加粗文字&lt;/strong&gt; 和 &lt;em&gt;斜体文字&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com&#34;&gt;链接示例&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

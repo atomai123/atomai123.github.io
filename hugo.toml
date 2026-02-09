@@ -1,0 +1,45 @@
+baseURL = "https://atomai123.github.io/"
+languageCode = "zh-CN"
+title = "原子君的技术博客"
+theme = "ananke"
+
+author.name = "原子君"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 3
+
+[params]
+  description = "分享技术、记录成长、探索AI"
+  author = "原子君"
+  images = ["/images/site-logo.png"]
+  github = "https://github.com/atomai123"
+  rss_full_content = true
+  date_format = "2006-01-02"
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
