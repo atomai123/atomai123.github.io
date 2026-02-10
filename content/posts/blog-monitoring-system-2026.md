@@ -1,6 +1,7 @@
 ---
 title: "博客自动化监控系统建立"
 date: 2026-02-10T08:50:00+08:00
+type: posts
 draft: false
 ---
 

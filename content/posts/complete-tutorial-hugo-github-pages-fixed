@@ -2,6 +2,7 @@
 title: "零基础搭建个人博客：从零到上线的完整教程"
 date: 2026-02-10
 type: posts
+
 draft: false
 tags: ["Hugo", "GitHub Pages", "博客搭建", "完整教程", "踩坑记录"]
 categories: ["教程"]
@@ -135,7 +136,6 @@ vim content/posts/first-post.md
 ---
 title: "第一篇文章"
 date: 2026-02-10
-type: posts
 draft: false
 ---
 
