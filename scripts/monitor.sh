@@ -2,7 +2,7 @@
 # 博客站点监控脚本
 # 每小时运行一次，检查站点可用性
 
-BLOG_URL="https://原子君.github.io"  # 博客地址
+BLOG_URL="https://atomai123.github.io"  # 博客地址
 LOG_FILE=~/projects/my-blog/scripts/monitor.log
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] 开始监控检查..." >> $LOG_FILE
