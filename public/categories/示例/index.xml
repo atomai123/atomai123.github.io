@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>示例 on 原子君的技术博客</title><link>https://atomai123.github.io/categories/%E7%A4%BA%E4%BE%8B/</link><description>Recent content in 示例 on 原子君的技术博客</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://atomai123.github.io/categories/%E7%A4%BA%E4%BE%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>博客文章模板</title><link>https://atomai123.github.io/posts/template/</link><pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate><guid>https://atomai123.github.io/posts/template/</guid><description>&lt;h1 id="博客文章模板"&gt;博客文章模板&lt;/h1&gt;
+&lt;p&gt;这是博客文章的模板示例。&lt;/p&gt;
+&lt;h2 id="代码块示例"&gt;代码块示例&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;hello&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;console&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="列表示例"&gt;列表示例&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;项目1&lt;/li&gt;
+&lt;li&gt;项目2&lt;/li&gt;
+&lt;li&gt;项目3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="引用示例"&gt;引用示例&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一段引用文字。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;加粗文字&lt;/strong&gt; 和 &lt;em&gt;斜体文字&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com"&gt;链接示例&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
