@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>生活 on 原子君的技术博客</title>
+    <link>https://atomai123.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
+    <description>Recent content in 生活 on 原子君的技术博客</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://atomai123.github.io/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>欢迎来到原子君的技术博客</title>
+      <link>https://atomai123.github.io/posts/welcome/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://atomai123.github.io/posts/welcome/</guid>
+      <description>&lt;h2 id=&#34;你好&#34;&gt;你好！👋&lt;/h2&gt;&#xA;&lt;p&gt;欢迎来到我的技术博客！很高兴你能在这里看到这篇文章。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
