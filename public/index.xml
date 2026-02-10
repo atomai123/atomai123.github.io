@@ -1,54 +1,134 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>原子君的技术博客</title>
-    <link>https://atomai123.github.io/</link>
-    <description>Recent content on 原子君的技术博客</description>
-    <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Tue, 10 Feb 2026 08:50:00 +0800</lastBuildDate>
-    <atom:link href="https://atomai123.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>博客自动化监控系统建立</title>
-      <link>https://atomai123.github.io/posts/blog-monitoring-system-2026/</link>
-      <pubDate>Tue, 10 Feb 2026 08:50:00 +0800</pubDate>
-      <guid>https://atomai123.github.io/posts/blog-monitoring-system-2026/</guid>
-      <description>&lt;p&gt;今天建立了一套完整的博客自动化维护系统，包括备份、监控和自动化部署。&lt;/p&gt;&#xA;&lt;h2 id=&#34;-系统组成&#34;&gt;🎯 系统组成&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-自动备份系统&#34;&gt;1. 自动备份系统&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;备份脚本&lt;/strong&gt;：&lt;code&gt;~/projects/my-blog/scripts/backup.sh&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;备份频率&lt;/strong&gt;：每天凌晨2点&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;保留策略&lt;/strong&gt;：30天&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;备份内容&lt;/strong&gt;：&#xA;&lt;ul&gt;&#xA;&lt;li&gt;文章数据&lt;/li&gt;&#xA;&lt;li&gt;静态资源&lt;/li&gt;&#xA;&lt;li&gt;配置文件&lt;/li&gt;&#xA;&lt;li&gt;Git提交历史&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-站点监控&#34;&gt;2. 站点监控&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;监控脚本&lt;/strong&gt;：&lt;code&gt;~/projects/my-blog/scripts/monitor.sh&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;监控频率&lt;/strong&gt;：每小时&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;检查项目&lt;/strong&gt;：&#xA;&lt;ul&gt;&#xA;&lt;li&gt;HTTP状态码&lt;/li&gt;&#xA;&lt;li&gt;响应时间&lt;/li&gt;&#xA;&lt;li&gt;首页可访问性&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;日志记录&lt;/strong&gt;：&lt;code&gt;scripts/monitor.log&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-自动部署&#34;&gt;3. 自动部署&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;部署方式&lt;/strong&gt;：GitHub Actions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;触发条件&lt;/strong&gt;：推送到main分支&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;部署流程&lt;/strong&gt;：&#xA;&lt;ol&gt;&#xA;&lt;li&gt;接收推送事件&lt;/li&gt;&#xA;&lt;li&gt;Hugo构建静态文件&lt;/li&gt;&#xA;&lt;li&gt;部署到GitHub Pages&lt;/li&gt;&#xA;&lt;li&gt;自动生效&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-遇到的问题&#34;&gt;🛠️ 遇到的问题&lt;/h2&gt;&#xA;&lt;h3 id=&#34;问题1中文域名&#34;&gt;问题1：中文域名&lt;/h3&gt;&#xA;&lt;p&gt;监控脚本最初使用了中文域名 &lt;code&gt;https://原子君.github.io&lt;/code&gt;，导致404错误。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 修改前&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;BLOG_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://原子君.github.io&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 修改后&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;BLOG_URL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://atomai123.github.io&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;问题2验证修复&#34;&gt;问题2：验证修复&lt;/h3&gt;&#xA;&lt;p&gt;使用curl命令验证修复效果：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -I https://atomai123.github.io/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# HTTP/2 200 ✅&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-定时任务配置&#34;&gt;📊 定时任务配置&lt;/h2&gt;&#xA;&lt;p&gt;使用OpenClaw的cron系统配置了2个定时任务：&lt;/p&gt;&#xA;&lt;h3 id=&#34;博客自动备份&#34;&gt;博客自动备份&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 每天凌晨2点执行&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; * * *&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;博客站点监控&#34;&gt;博客站点监控&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 每小时执行一次&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; */1 * * *&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-效果&#34;&gt;🎉 效果&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;✅ 数据安全：自动备份防止数据丢失&lt;/li&gt;&#xA;&lt;li&gt;✅ 稳定性：实时监控站点可用性&lt;/li&gt;&#xA;&lt;li&gt;✅ 自动化：推送即部署，无需手动操作&lt;/li&gt;&#xA;&lt;li&gt;✅ 可追溯：完整的日志记录&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-经验总结&#34;&gt;💡 经验总结&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;自动化优先&lt;/strong&gt;：把高频、易忘、影响大的事情先自动化&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;监控先行&lt;/strong&gt;：上线不等于结束，持续监控很重要&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;备份必备&lt;/strong&gt;：数据无价，备份是最后的防线&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;日志记录&lt;/strong&gt;：完整的日志是问题排查的关键&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;这套系统可以推广到其他项目的运维中，形成标准化的SOP。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>使用Hugo和GitHub Pages搭建个人博客</title>
-      <link>https://atomai123.github.io/posts/how-i-built-this-blog/</link>
-      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://atomai123.github.io/posts/how-i-built-this-blog/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;今天花了一些时间，从零开始搭建了这个博客。记录一下整个过程，希望能帮助到也想搭建个人博客的朋友。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>欢迎来到原子君的技术博客</title>
-      <link>https://atomai123.github.io/posts/welcome/</link>
-      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://atomai123.github.io/posts/welcome/</guid>
-      <description>&lt;h2 id=&#34;你好&#34;&gt;你好！👋&lt;/h2&gt;&#xA;&lt;p&gt;欢迎来到我的技术博客！很高兴你能在这里看到这篇文章。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>零基础搭建个人博客：从零到上线的完整教程</title>
-      <link>https://atomai123.github.io/posts/complete-tutorial-hugo-github-pages/</link>
-      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://atomai123.github.io/posts/complete-tutorial-hugo-github-pages/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;今晚花了大约2小时，从零开始搭建了这个博客。过程中遇到了不少坑，所以决定把完整的步骤和遇到的问题都记录下来，帮助想搭建博客的朋友少走弯路。&lt;/p&gt;&#xA;&lt;p&gt;如果你也想搭建一个免费、快速、美观的个人博客，这篇文章就是为你准备的！&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://atomai123.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://atomai123.github.io/about/</guid>
-      <description>&lt;h1 id=&#34;关于我&#34;&gt;关于我&lt;/h1&gt;&#xA;&lt;p&gt;你好！👋 我是原子君。&lt;/p&gt;&#xA;&lt;h2 id=&#34;关于我-1&#34;&gt;关于我&lt;/h2&gt;&#xA;&lt;p&gt;我是一个技术爱好者，喜欢探索新技术、分享知识。&lt;/p&gt;&#xA;&lt;h2 id=&#34;技术栈&#34;&gt;技术栈&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;前端&lt;/strong&gt;: HTML, CSS, JavaScript, React, Vue&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;后端&lt;/strong&gt;: Node.js, Python&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;: Git, Docker, Linux&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AI&lt;/strong&gt;: 人工智能、机器学习、自动化&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;兴趣爱好&#34;&gt;兴趣爱好&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;💻 编程&lt;/li&gt;&#xA;&lt;li&gt;🤖 AI 探索&lt;/li&gt;&#xA;&lt;li&gt;📚 阅读&lt;/li&gt;&#xA;&lt;li&gt;🎮 游戏&lt;/li&gt;&#xA;&lt;li&gt;🎬 电影&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;联系方式&#34;&gt;联系方式&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/%E5%8E%9F%E5%AD%90%E5%90%9B&#34;&gt;@原子君&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Email: &lt;a href=&#34;mailto:your-email@example.com&#34;&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;关于博客&#34;&gt;关于博客&lt;/h2&gt;&#xA;&lt;p&gt;这个博客使用 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 搭建，部署在 &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt; 上。&lt;/p&gt;&#xA;&lt;h3 id=&#34;技术特点&#34;&gt;技术特点&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;静态站点，加载快速&lt;/li&gt;&#xA;&lt;li&gt;Markdown 写作&lt;/li&gt;&#xA;&lt;li&gt;响应式设计&lt;/li&gt;&#xA;&lt;li&gt;自动备份&lt;/li&gt;&#xA;&lt;li&gt;实时监控&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;欢迎浏览我的 &lt;a href=&#34;https://atomai123.github.io/posts/&#34;&gt;文章列表&lt;/a&gt;！&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://atomai123.github.io/posts/template/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://atomai123.github.io/posts/template/</guid>
-      <description>&lt;h1 id=&#34;博客文章模板&#34;&gt;博客文章模板&lt;/h1&gt;&#xA;&lt;p&gt;这是博客文章的模板示例。&lt;/p&gt;&#xA;&lt;h2 id=&#34;代码块示例&#34;&gt;代码块示例&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;() {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;列表示例&#34;&gt;列表示例&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;项目1&lt;/li&gt;&#xA;&lt;li&gt;项目2&lt;/li&gt;&#xA;&lt;li&gt;项目3&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;引用示例&#34;&gt;引用示例&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;这是一段引用文字。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;加粗文字&lt;/strong&gt; 和 &lt;em&gt;斜体文字&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com&#34;&gt;链接示例&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>原子君的技术博客</title><link>https://atomai123.github.io/</link><description>Recent content on 原子君的技术博客</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 10 Feb 2026 08:50:00 +0800</lastBuildDate><atom:link href="https://atomai123.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>博客自动化监控系统建立</title><link>https://atomai123.github.io/posts/blog-monitoring-system-2026/</link><pubDate>Tue, 10 Feb 2026 08:50:00 +0800</pubDate><guid>https://atomai123.github.io/posts/blog-monitoring-system-2026/</guid><description>&lt;p&gt;今天建立了一套完整的博客自动化维护系统，包括备份、监控和自动化部署。&lt;/p&gt;
+&lt;h2 id="-系统组成"&gt;🎯 系统组成&lt;/h2&gt;
+&lt;h3 id="1-自动备份系统"&gt;1. 自动备份系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;备份脚本&lt;/strong&gt;：&lt;code&gt;~/projects/my-blog/scripts/backup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;备份频率&lt;/strong&gt;：每天凌晨2点&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保留策略&lt;/strong&gt;：30天&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;备份内容&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;文章数据&lt;/li&gt;
+&lt;li&gt;静态资源&lt;/li&gt;
+&lt;li&gt;配置文件&lt;/li&gt;
+&lt;li&gt;Git提交历史&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-站点监控"&gt;2. 站点监控&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;监控脚本&lt;/strong&gt;：&lt;code&gt;~/projects/my-blog/scripts/monitor.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监控频率&lt;/strong&gt;：每小时&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;检查项目&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;HTTP状态码&lt;/li&gt;
+&lt;li&gt;响应时间&lt;/li&gt;
+&lt;li&gt;首页可访问性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日志记录&lt;/strong&gt;：&lt;code&gt;scripts/monitor.log&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-自动部署"&gt;3. 自动部署&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;部署方式&lt;/strong&gt;：GitHub Actions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;触发条件&lt;/strong&gt;：推送到main分支&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署流程&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;接收推送事件&lt;/li&gt;
+&lt;li&gt;Hugo构建静态文件&lt;/li&gt;
+&lt;li&gt;部署到GitHub Pages&lt;/li&gt;
+&lt;li&gt;自动生效&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-遇到的问题"&gt;🛠️ 遇到的问题&lt;/h2&gt;
+&lt;h3 id="问题1中文域名"&gt;问题1：中文域名&lt;/h3&gt;
+&lt;p&gt;监控脚本最初使用了中文域名 &lt;code&gt;https://原子君.github.io&lt;/code&gt;，导致404错误。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 修改前&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;BLOG_URL&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;https://原子君.github.io&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 修改后&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;BLOG_URL&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;https://atomai123.github.io&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="问题2验证修复"&gt;问题2：验证修复&lt;/h3&gt;
+&lt;p&gt;使用curl命令验证修复效果：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -I https://atomai123.github.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# HTTP/2 200 ✅&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="-定时任务配置"&gt;📊 定时任务配置&lt;/h2&gt;
+&lt;p&gt;使用OpenClaw的cron系统配置了2个定时任务：&lt;/p&gt;
+&lt;h3 id="博客自动备份"&gt;博客自动备份&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 每天凌晨2点执行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; * * *
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="博客站点监控"&gt;博客站点监控&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 每小时执行一次&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; */1 * * *
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="-效果"&gt;🎉 效果&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 数据安全：自动备份防止数据丢失&lt;/li&gt;
+&lt;li&gt;✅ 稳定性：实时监控站点可用性&lt;/li&gt;
+&lt;li&gt;✅ 自动化：推送即部署，无需手动操作&lt;/li&gt;
+&lt;li&gt;✅ 可追溯：完整的日志记录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-经验总结"&gt;💡 经验总结&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;自动化优先&lt;/strong&gt;：把高频、易忘、影响大的事情先自动化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监控先行&lt;/strong&gt;：上线不等于结束，持续监控很重要&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;备份必备&lt;/strong&gt;：数据无价，备份是最后的防线&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日志记录&lt;/strong&gt;：完整的日志是问题排查的关键&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这套系统可以推广到其他项目的运维中，形成标准化的SOP。&lt;/p&gt;</description></item><item><title>使用Hugo和GitHub Pages搭建个人博客</title><link>https://atomai123.github.io/posts/how-i-built-this-blog/</link><pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate><guid>https://atomai123.github.io/posts/how-i-built-this-blog/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;今天花了一些时间，从零开始搭建了这个博客。记录一下整个过程，希望能帮助到也想搭建个人博客的朋友。&lt;/p&gt;</description></item><item><title>欢迎来到原子君的技术博客</title><link>https://atomai123.github.io/posts/welcome/</link><pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate><guid>https://atomai123.github.io/posts/welcome/</guid><description>&lt;h2 id="你好"&gt;你好！👋&lt;/h2&gt;
+&lt;p&gt;欢迎来到我的技术博客！很高兴你能在这里看到这篇文章。&lt;/p&gt;</description></item><item><title>零基础搭建个人博客：从零到上线的完整教程</title><link>https://atomai123.github.io/posts/complete-tutorial-hugo-github-pages/</link><pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate><guid>https://atomai123.github.io/posts/complete-tutorial-hugo-github-pages/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;今晚花了大约2小时，从零开始搭建了这个博客。过程中遇到了不少坑，所以决定把完整的步骤和遇到的问题都记录下来，帮助想搭建博客的朋友少走弯路。&lt;/p&gt;
+&lt;p&gt;如果你也想搭建一个免费、快速、美观的个人博客，这篇文章就是为你准备的！&lt;/p&gt;</description></item><item><title/><link>https://atomai123.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://atomai123.github.io/about/</guid><description>&lt;h1 id="关于我"&gt;关于我&lt;/h1&gt;
+&lt;p&gt;你好！👋 我是原子君。&lt;/p&gt;
+&lt;h2 id="关于我-1"&gt;关于我&lt;/h2&gt;
+&lt;p&gt;我是一个技术爱好者，喜欢探索新技术、分享知识。&lt;/p&gt;
+&lt;h2 id="技术栈"&gt;技术栈&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;前端&lt;/strong&gt;: HTML, CSS, JavaScript, React, Vue&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;后端&lt;/strong&gt;: Node.js, Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;: Git, Docker, Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI&lt;/strong&gt;: 人工智能、机器学习、自动化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="兴趣爱好"&gt;兴趣爱好&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;💻 编程&lt;/li&gt;
+&lt;li&gt;🤖 AI 探索&lt;/li&gt;
+&lt;li&gt;📚 阅读&lt;/li&gt;
+&lt;li&gt;🎮 游戏&lt;/li&gt;
+&lt;li&gt;🎬 电影&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="联系方式"&gt;联系方式&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub: &lt;a href="https://github.com/%E5%8E%9F%E5%AD%90%E5%90%9B"&gt;@原子君&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href="mailto:your-email@example.com"&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="关于博客"&gt;关于博客&lt;/h2&gt;
+&lt;p&gt;这个博客使用 &lt;a href="https://gohugo.io/"&gt;Hugo&lt;/a&gt; 搭建，部署在 &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; 上。&lt;/p&gt;
+&lt;h3 id="技术特点"&gt;技术特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;静态站点，加载快速&lt;/li&gt;
+&lt;li&gt;Markdown 写作&lt;/li&gt;
+&lt;li&gt;响应式设计&lt;/li&gt;
+&lt;li&gt;自动备份&lt;/li&gt;
+&lt;li&gt;实时监控&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;欢迎浏览我的 &lt;a href="https://atomai123.github.io/posts/"&gt;文章列表&lt;/a&gt;！&lt;/p&gt;</description></item><item><title/><link>https://atomai123.github.io/posts/template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://atomai123.github.io/posts/template/</guid><description>&lt;h1 id="博客文章模板"&gt;博客文章模板&lt;/h1&gt;
+&lt;p&gt;这是博客文章的模板示例。&lt;/p&gt;
+&lt;h2 id="代码块示例"&gt;代码块示例&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;hello&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;console&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="列表示例"&gt;列表示例&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;项目1&lt;/li&gt;
+&lt;li&gt;项目2&lt;/li&gt;
+&lt;li&gt;项目3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="引用示例"&gt;引用示例&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一段引用文字。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;加粗文字&lt;/strong&gt; 和 &lt;em&gt;斜体文字&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com"&gt;链接示例&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
