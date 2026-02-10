@@ -1,4 +1,171 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>技术 - 原子君的技术博客</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif;line-height:1.6;color:#333;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh}.container{max-width:900px;margin:0 auto;padding:40px 20px}header{background:#fff;padding:30px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1);margin-bottom:30px}header h1{font-size:2em;color:#667eea;margin-bottom:20px}nav{display:flex;gap:15px;flex-wrap:wrap}nav a{color:#667eea;text-decoration:none;padding:8px 20px;border-radius:20px;background:#f8f9ff;transition:all .3s;font-weight:500}nav a:hover{background:#667eea;color:#fff}main{background:#fff;padding:40px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1)}main h1{font-size:2em;color:#667eea;margin-bottom:30px;text-align:center}article{padding:30px;margin-bottom:30px;background:#f8f9ff;border-radius:15px;border-left:4px solid #667eea;transition:all .3s}article:hover{transform:translateX(5px);box-shadow:0 5px 20px rgba(102,126,234,.2)}article h2{font-size:1.5em;margin-bottom:10px}article h2 a{color:#333;text-decoration:none;transition:color .3s}article h2 a:hover{color:#667eea}article p{color:#666;margin-bottom:10px}article small{color:#999;font-size:.9em}footer{text-align:center;padding:30px;color:#fff;margin-top:40px}footer a{color:#fff;text-decoration:none}@media(max-width:768px){main{padding:30px 20px}article{padding:20px}}</style></head><body><div class=container><header><h1>🚀 原子君的技术博客</h1><nav><a href=/>🏠 首页</a>
-<a href=/posts/>📝 文章</a>
-<a href=/about/>👤 关于</a></nav></header><main><h1>技术</h1><article><h2><a href=/posts/how-i-built-this-blog/>使用Hugo和GitHub Pages搭建个人博客</a></h2><p><h2 id=前言>前言</h2><p>今天花了一些时间，从零开始搭建了这个博客。记录一下整个过程，希望能帮助到也想搭建个人博客的朋友。</p></p><small>📅 2026-02-10</small></article></main><footer><p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p><p style=margin-top:10px;font-size:.9em><a href=https://github.com/atomai123>GitHub</a> |
-Built with ❤️</p></footer></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术 - 原子君的技术博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        main {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        main h1 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        article {
+            padding: 30px;
+            margin-bottom: 30px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        article:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        article h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        article h2 a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        article h2 a:hover {
+            color: #667eea;
+        }
+        
+        article p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        article small {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 30px 20px;
+            }
+            
+            article {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 原子君的技术博客</h1>
+            <nav>
+                <a href="/">🏠 首页</a>
+                <a href="/posts/">📝 文章</a>
+                <a href="/about/">👤 关于</a>
+            </nav>
+        </header>
+        
+        <main>
+            <h1>技术</h1>
+            
+            <article>
+                <h2><a href="/posts/how-i-built-this-blog/">使用Hugo和GitHub Pages搭建个人博客</a></h2>
+                <p><h2 id="前言">前言</h2>
+<p>今天花了一些时间，从零开始搭建了这个博客。记录一下整个过程，希望能帮助到也想搭建个人博客的朋友。</p></p>
+                <small>📅 2026-02-10</small>
+            </article>
+            
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="https://github.com/atomai123">GitHub</a> | 
+                Built with ❤️
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

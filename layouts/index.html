@@ -90,7 +90,7 @@
             background: #f8f9ff;
             border-radius: 15px;
             border-left: 4px solid #667eea;
-            transition: all 0.3s;
+            transition: all 0.3;
         }
         
         article:hover {
@@ -170,8 +170,8 @@
         
         <main>
             <h2>✨ 最新文章</h2>
-            {{ range first 10 .Site.RegularPages }}
-                {{ if eq .Kind "page" }}
+            {{ range where .Site.RegularPages "Kind" "page" }}
+                {{ if .Params.date }}
                 <article>
                     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                     <p>{{ .Summary }}</p>

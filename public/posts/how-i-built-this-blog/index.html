@@ -1,39 +1,291 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>使用Hugo和GitHub Pages搭建个人博客 - 原子君的技术博客</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif;line-height:1.8;color:#333;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh}.container{max-width:800px;margin:0 auto;padding:40px 20px}header{background:#fff;padding:30px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1);margin-bottom:30px}header h1{font-size:2em;color:#667eea;margin-bottom:20px}nav{display:flex;gap:15px;flex-wrap:wrap}nav a{color:#667eea;text-decoration:none;padding:8px 20px;border-radius:20px;background:#f8f9ff;transition:all .3s;font-weight:500}nav a:hover{background:#667eea;color:#fff}.content{background:#fff;padding:50px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1)}.content h1{font-size:2.5em;color:#667eea;margin-bottom:20px;line-height:1.3}.content .meta{color:#999;margin-bottom:30px;padding-bottom:20px;border-bottom:2px solid #f0f0f0}.content h2{font-size:1.8em;color:#667eea;margin-top:40px;margin-bottom:20px}.content h3{font-size:1.4em;color:#764ba2;margin-top:30px;margin-bottom:15px}.content p{margin-bottom:20px;line-height:1.8;font-size:1.05em}.content code{background:#f8f9ff;padding:2px 8px;border-radius:4px;color:#667eea;font-family:monaco,courier new,monospace}.content pre{background:#2d3748;color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0}.content pre code{background:0 0;color:inherit;padding:0}.content ul,.content ol{margin-left:30px;margin-bottom:20px}.content li{margin-bottom:10px}.content blockquote{border-left:4px solid #667eea;padding-left:20px;margin:20px 0;color:#666;font-style:italic}footer{text-align:center;padding:30px;color:#fff;margin-top:40px}footer a{color:#fff;text-decoration:none}@media(max-width:768px){.content{padding:30px 20px}.content h1{font-size:2em}}</style></head><body><div class=container><header><h1>🚀 原子君的技术博客</h1><nav><a href=/>🏠 首页</a>
-<a href=/posts/>📝 文章</a>
-<a href=/about/>👤 关于</a></nav></header><main class=content><h1>使用Hugo和GitHub Pages搭建个人博客</h1><div class=meta>📅 2026-02-10 |
-📄 文章</div><h2 id=前言>前言</h2><p>今天花了一些时间，从零开始搭建了这个博客。记录一下整个过程，希望能帮助到也想搭建个人博客的朋友。</p><h2 id=为什么选择hugo--github-pages>为什么选择Hugo + GitHub Pages？</h2><p>之前也尝试过其他方案，最终选择Hugo + GitHub Pages的原因：</p><ol><li><strong>Hugo速度快</strong> - 构建时间只有几十毫秒</li><li><strong>GitHub Pages免费</strong> - 不需要额外的服务器</li><li><strong>Git管理</strong> - 所有内容都有版本控制</li><li><strong>Markdown写作</strong> - 专注内容，格式简洁</li></ol><h2 id=搭建过程>搭建过程</h2><h3 id=1-安装hugo>1. 安装Hugo</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 下载Hugo extended版本</span>
-</span></span><span style=display:flex><span>wget https://github.com/gohugoio/hugo/releases/download/v0.155.3/hugo_extended_0.155.3_linux-amd64.tar.gz
-</span></span><span style=display:flex><span>tar -xzf hugo_extended_0.155.3_linux-amd64.tar.gz
-</span></span><span style=display:flex><span>sudo mv hugo /usr/local/bin/
-</span></span></code></pre></div><h3 id=2-创建博客>2. 创建博客</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>hugo new site my-blog
-</span></span><span style=display:flex><span>cd my-blog
-</span></span><span style=display:flex><span>git init
-</span></span></code></pre></div><h3 id=3-创建内容>3. 创建内容</h3><p>创建第一篇文章：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>hugo new posts/first-post.md
-</span></span></code></pre></div><h3 id=4-自定义布局>4. 自定义布局</h3><p>创建自己的HTML模板，添加个性化样式。</p><h3 id=5-部署到github-pages>5. 部署到GitHub Pages</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 构建网站</span>
-</span></span><span style=display:flex><span>hugo
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 推送到GitHub</span>
-</span></span><span style=display:flex><span>git add .
-</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Initial commit&#34;</span>
-</span></span><span style=display:flex><span>git push origin main
-</span></span></code></pre></div><h2 id=遇到的坑>遇到的坑</h2><h3 id=1-ssh密钥格式问题>1. SSH密钥格式问题</h3><p>GitHub拒绝了ED25519格式的密钥，最终改用RSA 4096位密钥。</p><h3 id=2-token权限不足>2. Token权限不足</h3><p>Personal Access Token需要包含<code>repo</code>权限。</p><h3 id=3-主题兼容性问题>3. 主题兼容性问题</h3><p>Ananke主题的<code>toc</code>短代码导致构建失败，最终移除主题，使用自定义布局。</p><h3 id=4-github-pages配置>4. GitHub Pages配置</h3><p>需要确保配置正确：</p><ul><li>Source: Deploy from a branch</li><li>Branch: main</li><li>Folder: / (root)</li></ul><h2 id=自动化脚本>自动化脚本</h2><p>为了让博客维护更轻松，我设置了两个自动化脚本：</p><h3 id=每日自动备份>每日自动备份</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 每天凌晨2点自动备份</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> <span style=color:#ae81ff>2</span> * * * ~/projects/my-blog/scripts/backup.sh
-</span></span></code></pre></div><h3 id=每小时监控>每小时监控</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 每小时检查博客是否正常</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> * * * * ~/projects/my-blog/scripts/monitor.sh
-</span></span></code></pre></div><h2 id=最终效果>最终效果</h2><ul><li>✅ 博客地址：https://atomai123.github.io/</li><li>✅ 构建时间：~26ms</li><li>✅ 页面数量：12个</li><li>✅ 自动化：备份 + 监控</li></ul><h2 id=写作流程>写作流程</h2><p>以后写新文章的流程：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 创建新文章</span>
-</span></span><span style=display:flex><span>hugo new posts/my-new-post.md
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 2. 编辑文章（用你喜欢的编辑器）</span>
-</span></span><span style=display:flex><span>vim content/posts/my-new-post.md
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 3. 本地预览</span>
-</span></span><span style=display:flex><span>hugo server -D
-</span></span><span style=display:flex><span><span style=color:#75715e># 访问 http://localhost:1313</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 4. 构建并推送</span>
-</span></span><span style=display:flex><span>hugo
-</span></span><span style=display:flex><span>git add .
-</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Add new post&#34;</span>
-</span></span><span style=display:flex><span>git push
-</span></span></code></pre></div><h2 id=总结>总结</h2><p>虽然过程中遇到了一些问题，但最终都解决了。现在有了一个：</p><ul><li>🚀 快速的静态博客</li><li>🎨 现代化的设计</li><li>📱 完美的移动端适配</li><li>⚡ 自动化的运维</li></ul><p>接下来会继续分享更多技术内容，欢迎关注！</p><hr><p><strong>相关资源</strong>：</p><ul><li><a href=https://gohugo.io/>Hugo官方文档</a></li><li><a href=https://docs.github.com/pages>GitHub Pages文档</a></li><li><a href=https://github.com/atomai123>我的GitHub</a></li></ul><p>有问题欢迎在评论区留言，或者直接联系我！😊</p></main><footer><p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p><p style=margin-top:10px;font-size:.9em><a href=https://github.com/atomai123>GitHub</a> |
-Built with ❤️</p></footer></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用Hugo和GitHub Pages搭建个人博客 - 原子君的技术博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .content h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .content .meta {
+            color: #999;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .content h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .content h3 {
+            font-size: 1.4em;
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        
+        .content code {
+            background: #f8f9ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #667eea;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+        
+        .content pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .content pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        
+        .content ul, .content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .content li {
+            margin-bottom: 10px;
+        }
+        
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 原子君的技术博客</h1>
+            <nav>
+                <a href="/">🏠 首页</a>
+                <a href="/posts/">📝 文章</a>
+                <a href="/about/">👤 关于</a>
+            </nav>
+        </header>
+        
+        <main class="content">
+            <h1>使用Hugo和GitHub Pages搭建个人博客</h1>
+            <div class="meta">
+                📅 2026-02-10 | 
+                📄 文章
+            </div>
+            <h2 id="前言">前言</h2>
+<p>今天花了一些时间，从零开始搭建了这个博客。记录一下整个过程，希望能帮助到也想搭建个人博客的朋友。</p>
+<h2 id="为什么选择hugo--github-pages">为什么选择Hugo + GitHub Pages？</h2>
+<p>之前也尝试过其他方案，最终选择Hugo + GitHub Pages的原因：</p>
+<ol>
+<li><strong>Hugo速度快</strong> - 构建时间只有几十毫秒</li>
+<li><strong>GitHub Pages免费</strong> - 不需要额外的服务器</li>
+<li><strong>Git管理</strong> - 所有内容都有版本控制</li>
+<li><strong>Markdown写作</strong> - 专注内容，格式简洁</li>
+</ol>
+<h2 id="搭建过程">搭建过程</h2>
+<h3 id="1-安装hugo">1. 安装Hugo</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 下载Hugo extended版本</span>
+</span></span><span style="display:flex;"><span>wget https://github.com/gohugoio/hugo/releases/download/v0.155.3/hugo_extended_0.155.3_linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>tar -xzf hugo_extended_0.155.3_linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>sudo mv hugo /usr/local/bin/
+</span></span></code></pre></div><h3 id="2-创建博客">2. 创建博客</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site my-blog
+</span></span><span style="display:flex;"><span>cd my-blog
+</span></span><span style="display:flex;"><span>git init
+</span></span></code></pre></div><h3 id="3-创建内容">3. 创建内容</h3>
+<p>创建第一篇文章：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/first-post.md
+</span></span></code></pre></div><h3 id="4-自定义布局">4. 自定义布局</h3>
+<p>创建自己的HTML模板，添加个性化样式。</p>
+<h3 id="5-部署到github-pages">5. 部署到GitHub Pages</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 构建网站</span>
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 推送到GitHub</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><h2 id="遇到的坑">遇到的坑</h2>
+<h3 id="1-ssh密钥格式问题">1. SSH密钥格式问题</h3>
+<p>GitHub拒绝了ED25519格式的密钥，最终改用RSA 4096位密钥。</p>
+<h3 id="2-token权限不足">2. Token权限不足</h3>
+<p>Personal Access Token需要包含<code>repo</code>权限。</p>
+<h3 id="3-主题兼容性问题">3. 主题兼容性问题</h3>
+<p>Ananke主题的<code>toc</code>短代码导致构建失败，最终移除主题，使用自定义布局。</p>
+<h3 id="4-github-pages配置">4. GitHub Pages配置</h3>
+<p>需要确保配置正确：</p>
+<ul>
+<li>Source: Deploy from a branch</li>
+<li>Branch: main</li>
+<li>Folder: / (root)</li>
+</ul>
+<h2 id="自动化脚本">自动化脚本</h2>
+<p>为了让博客维护更轻松，我设置了两个自动化脚本：</p>
+<h3 id="每日自动备份">每日自动备份</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 每天凌晨2点自动备份</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span> * * * ~/projects/my-blog/scripts/backup.sh
+</span></span></code></pre></div><h3 id="每小时监控">每小时监控</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 每小时检查博客是否正常</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> * * * * ~/projects/my-blog/scripts/monitor.sh
+</span></span></code></pre></div><h2 id="最终效果">最终效果</h2>
+<ul>
+<li>✅ 博客地址：https://atomai123.github.io/</li>
+<li>✅ 构建时间：~26ms</li>
+<li>✅ 页面数量：12个</li>
+<li>✅ 自动化：备份 + 监控</li>
+</ul>
+<h2 id="写作流程">写作流程</h2>
+<p>以后写新文章的流程：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. 创建新文章</span>
+</span></span><span style="display:flex;"><span>hugo new posts/my-new-post.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. 编辑文章（用你喜欢的编辑器）</span>
+</span></span><span style="display:flex;"><span>vim content/posts/my-new-post.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. 本地预览</span>
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问 http://localhost:1313</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. 构建并推送</span>
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add new post&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div><h2 id="总结">总结</h2>
+<p>虽然过程中遇到了一些问题，但最终都解决了。现在有了一个：</p>
+<ul>
+<li>🚀 快速的静态博客</li>
+<li>🎨 现代化的设计</li>
+<li>📱 完美的移动端适配</li>
+<li>⚡ 自动化的运维</li>
+</ul>
+<p>接下来会继续分享更多技术内容，欢迎关注！</p>
+<hr>
+<p><strong>相关资源</strong>：</p>
+<ul>
+<li><a href="https://gohugo.io/">Hugo官方文档</a></li>
+<li><a href="https://docs.github.com/pages">GitHub Pages文档</a></li>
+<li><a href="https://github.com/atomai123">我的GitHub</a></li>
+</ul>
+<p>有问题欢迎在评论区留言，或者直接联系我！😊</p>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="https://github.com/atomai123">GitHub</a> | 
+                Built with ❤️
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

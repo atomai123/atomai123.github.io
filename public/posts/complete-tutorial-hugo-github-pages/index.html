@@ -1,34 +1,246 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>零基础搭建个人博客：从零到上线的完整教程 - 原子君的技术博客</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif;line-height:1.8;color:#333;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh}.container{max-width:800px;margin:0 auto;padding:40px 20px}header{background:#fff;padding:30px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1);margin-bottom:30px}header h1{font-size:2em;color:#667eea;margin-bottom:20px}nav{display:flex;gap:15px;flex-wrap:wrap}nav a{color:#667eea;text-decoration:none;padding:8px 20px;border-radius:20px;background:#f8f9ff;transition:all .3s;font-weight:500}nav a:hover{background:#667eea;color:#fff}.content{background:#fff;padding:50px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1)}.content h1{font-size:2.5em;color:#667eea;margin-bottom:20px;line-height:1.3}.content .meta{color:#999;margin-bottom:30px;padding-bottom:20px;border-bottom:2px solid #f0f0f0}.content h2{font-size:1.8em;color:#667eea;margin-top:40px;margin-bottom:20px}.content h3{font-size:1.4em;color:#764ba2;margin-top:30px;margin-bottom:15px}.content p{margin-bottom:20px;line-height:1.8;font-size:1.05em}.content code{background:#f8f9ff;padding:2px 8px;border-radius:4px;color:#667eea;font-family:monaco,courier new,monospace}.content pre{background:#2d3748;color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0}.content pre code{background:0 0;color:inherit;padding:0}.content ul,.content ol{margin-left:30px;margin-bottom:20px}.content li{margin-bottom:10px}.content blockquote{border-left:4px solid #667eea;padding-left:20px;margin:20px 0;color:#666;font-style:italic}footer{text-align:center;padding:30px;color:#fff;margin-top:40px}footer a{color:#fff;text-decoration:none}@media(max-width:768px){.content{padding:30px 20px}.content h1{font-size:2em}}</style></head><body><div class=container><header><h1>🚀 原子君的技术博客</h1><nav><a href=/>🏠 首页</a>
-<a href=/posts/>📝 文章</a>
-<a href=/about/>👤 关于</a></nav></header><main class=content><h1>零基础搭建个人博客：从零到上线的完整教程</h1><div class=meta>📅 2026-02-10 |
-📄 文章</div><h2 id=前言>前言</h2><p>今晚花了大约2小时，从零开始搭建了这个博客。过程中遇到了不少坑，所以决定把完整的步骤和遇到的问题都记录下来，帮助想搭建博客的朋友少走弯路。</p><p>如果你也想搭建一个免费、快速、美观的个人博客，这篇文章就是为你准备的！</p><h2 id=为什么选择hugo--github-pages>为什么选择Hugo + GitHub Pages？</h2><p>在开始之前，先说说为什么选这个组合：</p><h3 id=hugo的优势>Hugo的优势</h3><ul><li>⚡ <strong>超快速度</strong> - 构建只需几十毫秒</li><li>📝 <strong>Markdown写作</strong> - 专注内容，格式简洁</li><li>🎨 <strong>主题丰富</strong> - 大量现成主题可用</li><li>🔧 <strong>高度定制</strong> - 完全可控的HTML/CSS</li></ul><h3 id=github-pages的优势>GitHub Pages的优势</h3><ul><li>💰 <strong>完全免费</strong> - 无需购买服务器</li><li>🚀 <strong>自动部署</strong> - 推送代码即发布</li><li>📊 <strong>全球CDN</strong> - 访问速度快</li><li>🔒 <strong>HTTPS支持</strong> - 自动配置SSL证书</li></ul><h2 id=准备工作>准备工作</h2><h3 id=前置要求>前置要求</h3><ol><li><strong>GitHub账号</strong> - 访问 <a href=https://github.com>https://github.com</a> 注册</li><li><strong>基本Git知识</strong> - 会用基本命令即可</li><li><strong>服务器/VPS</strong> - 我用的是OpenClaw，本地电脑也行</li></ol><h3 id=安装hugo>安装Hugo</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 下载Hugo extended版本（推荐）</span>
-</span></span><span style=display:flex><span>wget https://github.com/gohugoio/hugo/releases/download/v0.155.3/hugo_extended_0.155.3_linux-amd64.tar.gz
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 解压</span>
-</span></span><span style=display:flex><span>tar -xzf hugo_extended_0.155.3_linux-amd64.tar.gz
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移动到系统路径</span>
-</span></span><span style=display:flex><span>sudo mv hugo /usr/local/bin/
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 验证安装</span>
-</span></span><span style=display:flex><span>hugo version
-</span></span></code></pre></div><p><strong>安装成功输出</strong>：</p><pre tabindex=0><code>hugo v0.155.3-8a858213b73907e823e2be2b5640a0ce4c04d295+extended linux/amd64 BuildDate=2026-02-08T16:42:20Z VendorInfo=gohugoio
-</code></pre><h2 id=第一步创建博客项目>第一步：创建博客项目</h2><h3 id=初始化项目>初始化项目</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 创建项目目录</span>
-</span></span><span style=display:flex><span>mkdir -p ~/projects/my-blog
-</span></span><span style=display:flex><span>cd ~/projects/my-blog
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 初始化Git仓库</span>
-</span></span><span style=display:flex><span>git init
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 配置Git用户信息（如果还没配置过）</span>
-</span></span><span style=display:flex><span>git config user.name <span style=color:#e6db74>&#34;你的用户名&#34;</span>
-</span></span><span style=display:flex><span>git config user.email <span style=color:#e6db74>&#34;你的邮箱&#34;</span>
-</span></span></code></pre></div><h3 id=创建hugo站点>创建Hugo站点</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 创建Hugo站点</span>
-</span></span><span style=display:flex><span>hugo new site . --force
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看生成的文件结构</span>
-</span></span><span style=display:flex><span>ls -la
-</span></span></code></pre></div><p><strong>生成的文件结构</strong>：</p><pre tabindex=0><code>my-blog/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>零基础搭建个人博客：从零到上线的完整教程 - 原子君的技术博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .content h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .content .meta {
+            color: #999;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .content h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .content h3 {
+            font-size: 1.4em;
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        
+        .content code {
+            background: #f8f9ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #667eea;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+        
+        .content pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .content pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        
+        .content ul, .content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .content li {
+            margin-bottom: 10px;
+        }
+        
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 原子君的技术博客</h1>
+            <nav>
+                <a href="/">🏠 首页</a>
+                <a href="/posts/">📝 文章</a>
+                <a href="/about/">👤 关于</a>
+            </nav>
+        </header>
+        
+        <main class="content">
+            <h1>零基础搭建个人博客：从零到上线的完整教程</h1>
+            <div class="meta">
+                📅 2026-02-10 | 
+                📄 文章
+            </div>
+            <h2 id="前言">前言</h2>
+<p>今晚花了大约2小时，从零开始搭建了这个博客。过程中遇到了不少坑，所以决定把完整的步骤和遇到的问题都记录下来，帮助想搭建博客的朋友少走弯路。</p>
+<p>如果你也想搭建一个免费、快速、美观的个人博客，这篇文章就是为你准备的！</p>
+<h2 id="为什么选择hugo--github-pages">为什么选择Hugo + GitHub Pages？</h2>
+<p>在开始之前，先说说为什么选这个组合：</p>
+<h3 id="hugo的优势">Hugo的优势</h3>
+<ul>
+<li>⚡ <strong>超快速度</strong> - 构建只需几十毫秒</li>
+<li>📝 <strong>Markdown写作</strong> - 专注内容，格式简洁</li>
+<li>🎨 <strong>主题丰富</strong> - 大量现成主题可用</li>
+<li>🔧 <strong>高度定制</strong> - 完全可控的HTML/CSS</li>
+</ul>
+<h3 id="github-pages的优势">GitHub Pages的优势</h3>
+<ul>
+<li>💰 <strong>完全免费</strong> - 无需购买服务器</li>
+<li>🚀 <strong>自动部署</strong> - 推送代码即发布</li>
+<li>📊 <strong>全球CDN</strong> - 访问速度快</li>
+<li>🔒 <strong>HTTPS支持</strong> - 自动配置SSL证书</li>
+</ul>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="前置要求">前置要求</h3>
+<ol>
+<li><strong>GitHub账号</strong> - 访问 <a href="https://github.com">https://github.com</a> 注册</li>
+<li><strong>基本Git知识</strong> - 会用基本命令即可</li>
+<li><strong>服务器/VPS</strong> - 我用的是OpenClaw，本地电脑也行</li>
+</ol>
+<h3 id="安装hugo">安装Hugo</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 下载Hugo extended版本（推荐）</span>
+</span></span><span style="display:flex;"><span>wget https://github.com/gohugoio/hugo/releases/download/v0.155.3/hugo_extended_0.155.3_linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解压</span>
+</span></span><span style="display:flex;"><span>tar -xzf hugo_extended_0.155.3_linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 移动到系统路径</span>
+</span></span><span style="display:flex;"><span>sudo mv hugo /usr/local/bin/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 验证安装</span>
+</span></span><span style="display:flex;"><span>hugo version
+</span></span></code></pre></div><p><strong>安装成功输出</strong>：</p>
+<pre tabindex="0"><code>hugo v0.155.3-8a858213b73907e823e2be2b5640a0ce4c04d295+extended linux/amd64 BuildDate=2026-02-08T16:42:20Z VendorInfo=gohugoio
+</code></pre><h2 id="第一步创建博客项目">第一步：创建博客项目</h2>
+<h3 id="初始化项目">初始化项目</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建项目目录</span>
+</span></span><span style="display:flex;"><span>mkdir -p ~/projects/my-blog
+</span></span><span style="display:flex;"><span>cd ~/projects/my-blog
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 初始化Git仓库</span>
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 配置Git用户信息（如果还没配置过）</span>
+</span></span><span style="display:flex;"><span>git config user.name <span style="color:#e6db74">&#34;你的用户名&#34;</span>
+</span></span><span style="display:flex;"><span>git config user.email <span style="color:#e6db74">&#34;你的邮箱&#34;</span>
+</span></span></code></pre></div><h3 id="创建hugo站点">创建Hugo站点</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建Hugo站点</span>
+</span></span><span style="display:flex;"><span>hugo new site . --force
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看生成的文件结构</span>
+</span></span><span style="display:flex;"><span>ls -la
+</span></span></code></pre></div><p><strong>生成的文件结构</strong>：</p>
+<pre tabindex="0"><code>my-blog/
 ├── archetypes/      # 内容模板
 ├── content/         # 博客内容
 ├── data/            # 数据文件
@@ -36,199 +248,374 @@
 ├── static/          # 静态资源
 ├── themes/          # 主题目录
 └── hugo.toml       # 配置文件
-</code></pre><h2 id=第二步配置博客>第二步：配置博客</h2><h3 id=编辑hugotoml>编辑hugo.toml</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>vim hugo.toml
-</span></span></code></pre></div><p><strong>基础配置</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#a6e22e>baseURL</span> = <span style=color:#e6db74>&#34;https://你的用户名.github.io/&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>languageCode</span> = <span style=color:#e6db74>&#34;zh-CN&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>title</span> = <span style=color:#e6db74>&#34;你的博客标题&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>[<span style=color:#a6e22e>params</span>]
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>description</span> = <span style=color:#e6db74>&#34;博客描述&#34;</span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>author</span> = <span style=color:#e6db74>&#34;你的名字&#34;</span>
-</span></span></code></pre></div><h3 id=创建第一篇文章>创建第一篇文章</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 创建文章</span>
-</span></span><span style=display:flex><span>hugo new posts/first-post.md
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 编辑文章</span>
-</span></span><span style=display:flex><span>vim content/posts/first-post.md
-</span></span></code></pre></div><p><strong>文章格式</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
-</span></span><span style=display:flex><span>title: &#34;第一篇文章&#34;
-</span></span><span style=display:flex><span>date: 2026-02-10
-</span></span><span style=display:flex><span>draft: false
-</span></span><span style=display:flex><span>---
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>这是我的第一篇文章！
-</span></span></code></pre></div><h2 id=第三步自定义设计>第三步：自定义设计</h2><h3 id=创建自定义布局>创建自定义布局</h3><p>如果不使用主题，可以自己创建布局：</p><p><strong>首页布局</strong> (<code>layouts/index.html</code>)：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;zh-CN&#34;</span>&gt;
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>head</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;viewport&#34;</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>title</span>&gt;{{ .Site.Title }}&lt;/<span style=color:#f92672>title</span>&gt;
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>head</span>&gt;
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>body</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>h1</span>&gt;{{ .Site.Title }}&lt;/<span style=color:#f92672>h1</span>&gt;
-</span></span><span style=display:flex><span>    {{ .Content }}
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>body</span>&gt;
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>html</span>&gt;
-</span></span></code></pre></div><p><strong>单页布局</strong> (<code>layouts/_default/single.html</code>)：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;zh-CN&#34;</span>&gt;
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>head</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>title</span>&gt;{{ .Title }}&lt;/<span style=color:#f92672>title</span>&gt;
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>head</span>&gt;
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>body</span>&gt;
-</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>h1</span>&gt;{{ .Title }}&lt;/<span style=color:#f92672>h1</span>&gt;
-</span></span><span style=display:flex><span>    {{ .Content }}
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>body</span>&gt;
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>html</span>&gt;
-</span></span></code></pre></div><h3 id=添加样式>添加样式</h3><p>创建 <code>static/styles.css</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#f92672>body</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>font-family</span>: <span style=color:#f92672>-</span>apple-system, BlinkMacSystemFont, <span style=color:#e6db74>&#34;Segoe UI&#34;</span>, Roboto, <span style=color:#66d9ef>sans-serif</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>max-width</span>: <span style=color:#ae81ff>800</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>margin</span>: <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>auto</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>20</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>line-height</span>: <span style=color:#ae81ff>1.6</span>;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h2 id=第四步本地预览>第四步：本地预览</h2><h3 id=构建网站>构建网站</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 构建网站</span>
-</span></span><span style=display:flex><span>hugo
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看生成的文件</span>
-</span></span><span style=display:flex><span>ls -lh public/
-</span></span></code></pre></div><p><strong>输出示例</strong>：</p><pre tabindex=0><code>Total in 26 ms
+</code></pre><h2 id="第二步配置博客">第二步：配置博客</h2>
+<h3 id="编辑hugotoml">编辑hugo.toml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vim hugo.toml
+</span></span></code></pre></div><p><strong>基础配置</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://你的用户名.github.io/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;zh-CN&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;你的博客标题&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;博客描述&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;你的名字&#34;</span>
+</span></span></code></pre></div><h3 id="创建第一篇文章">创建第一篇文章</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建文章</span>
+</span></span><span style="display:flex;"><span>hugo new posts/first-post.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 编辑文章</span>
+</span></span><span style="display:flex;"><span>vim content/posts/first-post.md
+</span></span></code></pre></div><p><strong>文章格式</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;第一篇文章&#34;
+</span></span><span style="display:flex;"><span>date: 2026-02-10
+</span></span><span style="display:flex;"><span>draft: false
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>这是我的第一篇文章！
+</span></span></code></pre></div><h2 id="第三步自定义设计">第三步：自定义设计</h2>
+<h3 id="创建自定义布局">创建自定义布局</h3>
+<p>如果不使用主题，可以自己创建布局：</p>
+<p><strong>首页布局</strong> (<code>layouts/index.html</code>)：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zh-CN&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;{{ .Site.Title }}&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;{{ .Site.Title }}&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ .Content }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><strong>单页布局</strong> (<code>layouts/_default/single.html</code>)：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zh-CN&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;{{ .Title }}&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;{{ .Title }}&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ .Content }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h3 id="添加样式">添加样式</h3>
+<p>创建 <code>static/styles.css</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-family</span>: <span style="color:#f92672">-</span>apple-system, BlinkMacSystemFont, <span style="color:#e6db74">&#34;Segoe UI&#34;</span>, Roboto, <span style="color:#66d9ef">sans-serif</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">800</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.6</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="第四步本地预览">第四步：本地预览</h2>
+<h3 id="构建网站">构建网站</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 构建网站</span>
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看生成的文件</span>
+</span></span><span style="display:flex;"><span>ls -lh public/
+</span></span></code></pre></div><p><strong>输出示例</strong>：</p>
+<pre tabindex="0"><code>Total in 26 ms
  Pages            │ 12 
  Paginator pages  │  0 
  Static files     │  2
-</code></pre><h3 id=本地预览>本地预览</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 启动开发服务器</span>
-</span></span><span style=display:flex><span>hugo server -D
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 访问 http://localhost:1313</span>
-</span></span></code></pre></div><h2 id=第五步部署到github-pages>第五步：部署到GitHub Pages</h2><h3 id=创建github仓库>创建GitHub仓库</h3><ol><li>访问 <a href=https://github.com/new>https://github.com/new</a></li><li>仓库名：<code>你的用户名.github.io</code>（必须这个格式）</li><li>设置为Public</li><li>点击Create repository</li></ol><h3 id=推送代码>推送代码</h3><p><strong>方法1：使用HTTPS + Token</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 生成Personal Access Token</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 访问：https://github.com/settings/tokens</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 勾选repo权限，生成token</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 添加远程仓库（使用token）</span>
-</span></span><span style=display:flex><span>git remote add origin https://&lt;你的token&gt;@github.com/你的用户名/你的用户名.github.io.git
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 推送代码</span>
-</span></span><span style=display:flex><span>git add .
-</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Initial commit&#34;</span>
-</span></span><span style=display:flex><span>git push -u origin main
-</span></span></code></pre></div><p><strong>方法2：使用SSH密钥</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 生成SSH密钥</span>
-</span></span><span style=display:flex><span>ssh-keygen -t rsa -b <span style=color:#ae81ff>4096</span> -C <span style=color:#e6db74>&#34;你的邮箱&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看公钥</span>
-</span></span><span style=display:flex><span>cat ~/.ssh/id_rsa.pub
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 添加到GitHub</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 访问：https://github.com/settings/ssh/new</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 粘贴公钥内容</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 推送代码</span>
-</span></span><span style=display:flex><span>git remote add origin git@github.com:你的用户名/你的用户名.github.io.git
-</span></span><span style=display:flex><span>git push -u origin main
-</span></span></code></pre></div><h3 id=配置github-pages>配置GitHub Pages</h3><ol><li>访问仓库Settings：https://github.com/你的用户名/你的用户名.github.io/settings/pages</li><li>Source选择：Deploy from a branch</li><li>Branch选择：main</li><li>Folder选择：/ (root)</li><li>点击Save</li></ol><h3 id=访问博客>访问博客</h3><p>等待2-3分钟，访问：https://你的用户名.github.io/</p><h2 id=踩坑记录>踩坑记录</h2><h3 id=坑1ssh密钥格式问题>坑1：SSH密钥格式问题</h3><p><strong>问题</strong>：GitHub拒绝ED25519格式的密钥</p><p><strong>错误信息</strong>：</p><pre tabindex=0><code>Key is weak. GitHub recommends using ssh-keygen to generate a RSA key of at least 2048 bits.
-</code></pre><p><strong>解决</strong>：改用RSA 4096位密钥</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>ssh-keygen -t rsa -b <span style=color:#ae81ff>4096</span> -C <span style=color:#e6db74>&#34;你的邮箱&#34;</span>
-</span></span></code></pre></div><h3 id=坑2token权限不足>坑2：Token权限不足</h3><p><strong>问题</strong>：Personal Access Token缺少workflow权限</p><p><strong>错误信息</strong>：</p><pre tabindex=0><code>refusing to allow a Personal Access Token to create or update workflow
-</code></pre><p><strong>解决</strong>：</p><ol><li>删除旧token</li><li>重新生成，勾选<code>repo</code>权限（不需要workflow）</li><li>或者删除GitHub Actions配置文件</li></ol><h3 id=坑3主题兼容性问题>坑3：主题兼容性问题</h3><p><strong>问题</strong>：Ananke主题的<code>toc</code>短代码导致构建失败</p><p><strong>错误信息</strong>：</p><pre tabindex=0><code>Your site is having problems building: The tag toc shortcode on your site doesn&#39;t have a closing tag.
-</code></pre><p><strong>解决</strong>：移除主题，使用自定义布局</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>rm -rf themes/ananke
-</span></span></code></pre></div><h3 id=坑4404错误>坑4：404错误</h3><p><strong>问题</strong>：访问博客返回404</p><p><strong>原因</strong>：GitHub Pages配置了<code>/public</code>子目录，但文件在根目录</p><p><strong>解决</strong>：</p><ol><li>确保GitHub Pages配置为<code>/ (root)</code></li><li>或将public目录内容复制到根目录</li></ol><h3 id=坑5缓存问题>坑5：缓存问题</h3><p><strong>问题</strong>：修改后刷新还是旧版本</p><p><strong>解决</strong>：</p><ol><li>硬刷新：Ctrl+F5</li><li>清除浏览器缓存</li><li>等待2-3分钟让GitHub Pages重新构建</li></ol><h2 id=自动化脚本>自动化脚本</h2><h3 id=每日自动备份>每日自动备份</h3><p>创建 <code>scripts/backup.sh</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span>DATE<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>date +%Y%m%d<span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span>BACKUP_DIR<span style=color:#f92672>=</span>~/projects/my-blog/backup
-</span></span><span style=display:flex><span>SOURCE_DIR<span style=color:#f92672>=</span>~/projects/my-blog
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>tar -czf $BACKUP_DIR/blog-backup-$DATE.tar.gz <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  $SOURCE_DIR/content <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  $SOURCE_DIR/layouts <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  $SOURCE_DIR/static <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>  $SOURCE_DIR/hugo.toml
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 保留最近30天</span>
-</span></span><span style=display:flex><span>find $BACKUP_DIR -name <span style=color:#e6db74>&#34;blog-backup-*.tar.gz&#34;</span> -mtime +30 -delete
-</span></span></code></pre></div><p>添加到定时任务：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 编辑crontab</span>
-</span></span><span style=display:flex><span>crontab -e
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 添加：每天凌晨2点备份</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> <span style=color:#ae81ff>2</span> * * * /root/projects/my-blog/scripts/backup.sh
-</span></span></code></pre></div><h3 id=每小时监控>每小时监控</h3><p>创建 <code>scripts/monitor.sh</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span>LOG_FILE<span style=color:#f92672>=</span>~/projects/my-blog/scripts/monitor.log
-</span></span><span style=display:flex><span>URL<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://你的用户名.github.io/&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>STATUS<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>curl -s -o /dev/null -w <span style=color:#e6db74>&#34;%{http_code}&#34;</span> $URL<span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> $STATUS -eq <span style=color:#ae81ff>200</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;[</span><span style=color:#66d9ef>$(</span>date <span style=color:#e6db74>&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style=color:#66d9ef>)</span><span style=color:#e6db74>] ✅ 博客正常&#34;</span> &gt;&gt; $LOG_FILE
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;[</span><span style=color:#66d9ef>$(</span>date <span style=color:#e6db74>&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style=color:#66d9ef>)</span><span style=color:#e6db74>] ❌ 博客异常 (HTTP </span>$STATUS<span style=color:#e6db74>)&#34;</span> &gt;&gt; $LOG_FILE
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
-</span></span></code></pre></div><p>添加到定时任务：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 每小时检查</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> * * * * /root/projects/my-blog/scripts/monitor.sh
-</span></span></code></pre></div><h2 id=博客装修>博客装修</h2><h3 id=添加渐变背景>添加渐变背景</h3><p>编辑 <code>layouts/index.html</code>，添加CSS：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#f92672>body</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>background</span>: linear-gradient(<span style=color:#ae81ff>135</span><span style=color:#66d9ef>deg</span>, <span style=color:#ae81ff>#667eea</span> <span style=color:#ae81ff>0</span><span style=color:#66d9ef>%</span>, <span style=color:#ae81ff>#764ba2</span> <span style=color:#ae81ff>100</span><span style=color:#66d9ef>%</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>min-height</span>: <span style=color:#ae81ff>100</span><span style=color:#66d9ef>vh</span>;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h3 id=添加卡片布局>添加卡片布局</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>container</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>max-width</span>: <span style=color:#ae81ff>900</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>margin</span>: <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>auto</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>40</span><span style=color:#66d9ef>px</span> <span style=color:#ae81ff>20</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>header</span><span style=color:#f92672>,</span> <span style=color:#f92672>main</span><span style=color:#f92672>,</span> <span style=color:#f92672>article</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>background</span>: <span style=color:#66d9ef>white</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>border-radius</span>: <span style=color:#ae81ff>20</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>box-shadow</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>10</span><span style=color:#66d9ef>px</span> <span style=color:#ae81ff>40</span><span style=color:#66d9ef>px</span> rgba(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0.1</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>padding</span>: <span style=color:#ae81ff>40</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>margin-bottom</span>: <span style=color:#ae81ff>30</span><span style=color:#66d9ef>px</span>;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h3 id=添加动画效果>添加动画效果</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#f92672>article</span>:<span style=color:#a6e22e>hover</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>transform</span>: translateX(<span style=color:#ae81ff>5</span><span style=color:#66d9ef>px</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>box-shadow</span>: <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>5</span><span style=color:#66d9ef>px</span> <span style=color:#ae81ff>20</span><span style=color:#66d9ef>px</span> rgba(<span style=color:#ae81ff>102</span>, <span style=color:#ae81ff>126</span>, <span style=color:#ae81ff>234</span>, <span style=color:#ae81ff>0.2</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>transition</span>: <span style=color:#66d9ef>all</span> <span style=color:#ae81ff>0.3</span><span style=color:#66d9ef>s</span>;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h2 id=写作流程>写作流程</h2><h3 id=新建文章>新建文章</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 创建文章</span>
-</span></span><span style=display:flex><span>hugo new posts/my-new-post.md
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 编辑文章</span>
-</span></span><span style=display:flex><span>vim content/posts/my-new-post.md
-</span></span></code></pre></div><h3 id=本地预览-1>本地预览</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 启动开发服务器</span>
-</span></span><span style=display:flex><span>hugo server -D
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 访问 http://localhost:1313</span>
-</span></span></code></pre></div><h3 id=发布文章>发布文章</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 构建</span>
-</span></span><span style=display:flex><span>hugo
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 如果不使用GitHub Actions，需要复制文件</span>
-</span></span><span style=display:flex><span>cp -r public/* ./
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 提交并推送</span>
-</span></span><span style=display:flex><span>git add .
-</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Add new post&#34;</span>
-</span></span><span style=display:flex><span>git push
-</span></span></code></pre></div><h2 id=高级功能可选>高级功能（可选）</h2><h3 id=添加评论系统>添加评论系统</h3><p>使用 <a href=https://giscus.app/>Giscus</a>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://giscus.app/client.js&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-repo</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;你的用户名/你的用户名.github.io&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-repo-id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;...&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-category</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Announcements&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-category-id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;...&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-mapping</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;pathname&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-strict</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;0&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-reactions-enabled</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;1&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-emit-metadata</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;0&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-input-position</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;bottom&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-theme</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;preferred_color_scheme&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data-lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;zh-CN&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>crossorigin</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;anonymous&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>async</span>&gt;
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>script</span>&gt;
-</span></span></code></pre></div><h3 id=添加google-analytics>添加Google Analytics</h3><p>在 <code>layouts/partials/analytics.html</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!-- Google Analytics --&gt;</span>
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>async</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>script</span>&gt;
-</span></span><span style=display:flex><span>  window.<span style=color:#a6e22e>dataLayer</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>dataLayer</span> <span style=color:#f92672>||</span> [];
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>gtag</span>(){<span style=color:#a6e22e>dataLayer</span>.<span style=color:#a6e22e>push</span>(<span style=color:#a6e22e>arguments</span>);}
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>gtag</span>(<span style=color:#e6db74>&#39;js&#39;</span>, <span style=color:#66d9ef>new</span> Date());
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>gtag</span>(<span style=color:#e6db74>&#39;config&#39;</span>, <span style=color:#e6db74>&#39;G-XXXXXXXXXX&#39;</span>);
-</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>script</span>&gt;
-</span></span></code></pre></div><h3 id=添加rss订阅>添加RSS订阅</h3><p>在 <code>hugo.toml</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-toml data-lang=toml><span style=display:flex><span>[<span style=color:#a6e22e>outputs</span>]
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>home</span> = [<span style=color:#e6db74>&#34;HTML&#34;</span>, <span style=color:#e6db74>&#34;RSS&#34;</span>]
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>section</span> = [<span style=color:#e6db74>&#34;HTML&#34;</span>, <span style=color:#e6db74>&#34;RSS&#34;</span>]
-</span></span></code></pre></div><h2 id=性能优化>性能优化</h2><h3 id=图片优化>图片优化</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 转换为WebP格式</span>
-</span></span><span style=display:flex><span>cwebp -q <span style=color:#ae81ff>80</span> input.jpg -o output.webp
-</span></span></code></pre></div><h3 id=启用压缩>启用压缩</h3><p>在 <code>hugo.toml</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-toml data-lang=toml><span style=display:flex><span>[<span style=color:#a6e22e>minify</span>]
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>minifyOutput</span> = <span style=color:#66d9ef>true</span>
-</span></span></code></pre></div><h3 id=cdn加速>CDN加速</h3><p>GitHub Pages自带全球CDN，无需额外配置。</p><h2 id=总结>总结</h2><h3 id=完成清单>完成清单</h3><ul><li>✅ 安装Hugo</li><li>✅ 创建博客项目</li><li>✅ 配置博客信息</li><li>✅ 创建内容</li><li>✅ 自定义设计</li><li>✅ 部署到GitHub Pages</li><li>✅ 配置自动化脚本</li></ul><h3 id=最终效果>最终效果</h3><ul><li>🌐 博客地址：https://atomai123.github.io/</li><li>⚡ 构建时间：~26ms</li><li>📄 页面数量：11个</li><li>💾 自动备份：每天凌晨2点</li><li>🔍 自动监控：每小时检查</li></ul><h3 id=学到的经验>学到的经验</h3><ol><li><strong>文档很重要</strong> - 遇到问题时，官方文档是最好的参考</li><li><strong>耐心是关键</strong> - 部署可能需要多次尝试</li><li><strong>自动化很值</strong> - 花时间配置自动化，长期收益很大</li><li><strong>简单最美</strong> - 不需要复杂主题，简洁的布局反而更好</li></ol><h2 id=下一步>下一步</h2><h3 id=短期计划>短期计划</h3><ul><li><input disabled type=checkbox> 添加评论系统</li><li><input disabled type=checkbox> 添加暗黑模式</li><li><input disabled type=checkbox> 优化SEO</li><li><input disabled type=checkbox> 添加更多文章</li></ul><h3 id=长期规划>长期规划</h3><ul><li><input disabled type=checkbox> 添加搜索功能</li><li><input disabled type=checkbox> 多语言支持</li><li><input disabled type=checkbox> 邮件订阅</li><li><input disabled type=checkbox> 性能监控</li></ul><h2 id=参考资源>参考资源</h2><ul><li><a href=https://gohugo.io/documentation/>Hugo官方文档</a></li><li><a href=https://docs.github.com/pages>GitHub Pages文档</a></li><li><a href=https://www.markdownguide.org/>Markdown语法指南</a></li><li><a href=https://git-scm.com/docs/gittutorial>Git教程</a></li></ul><h2 id=结语>结语</h2><p>搭建博客的过程虽然遇到了一些问题，但最终都解决了。现在我有了一个：</p><ul><li>🚀 快速的静态博客</li><li>🎨 现代化的设计</li><li>📱 完美的移动端适配</li><li>⚡ 自动化的运维</li></ul><p>如果你也想搭建博客，希望这篇教程能帮到你！</p><p><strong>有问题？欢迎在评论区留言，或者直接联系我！</strong></p><hr><p><strong>相关文章</strong>：</p><ul><li><a href=/posts/how-i-built-this-blog/>使用Hugo和GitHub Pages搭建个人博客</a></li><li><a href=/posts/welcome/>欢迎来到原子君的技术博客</a></li></ul><p><strong>最后更新：2026-02-10</strong></p></main><footer><p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p><p style=margin-top:10px;font-size:.9em><a href=https://github.com/atomai123>GitHub</a> |
-Built with ❤️</p></footer></div></body></html>
+</code></pre><h3 id="本地预览">本地预览</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 启动开发服务器</span>
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问 http://localhost:1313</span>
+</span></span></code></pre></div><h2 id="第五步部署到github-pages">第五步：部署到GitHub Pages</h2>
+<h3 id="创建github仓库">创建GitHub仓库</h3>
+<ol>
+<li>访问 <a href="https://github.com/new">https://github.com/new</a></li>
+<li>仓库名：<code>你的用户名.github.io</code>（必须这个格式）</li>
+<li>设置为Public</li>
+<li>点击Create repository</li>
+</ol>
+<h3 id="推送代码">推送代码</h3>
+<p><strong>方法1：使用HTTPS + Token</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 生成Personal Access Token</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问：https://github.com/settings/tokens</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 勾选repo权限，生成token</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加远程仓库（使用token）</span>
+</span></span><span style="display:flex;"><span>git remote add origin https://&lt;你的token&gt;@github.com/你的用户名/你的用户名.github.io.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 推送代码</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><p><strong>方法2：使用SSH密钥</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 生成SSH密钥</span>
+</span></span><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;你的邮箱&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看公钥</span>
+</span></span><span style="display:flex;"><span>cat ~/.ssh/id_rsa.pub
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加到GitHub</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问：https://github.com/settings/ssh/new</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 粘贴公钥内容</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 推送代码</span>
+</span></span><span style="display:flex;"><span>git remote add origin git@github.com:你的用户名/你的用户名.github.io.git
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><h3 id="配置github-pages">配置GitHub Pages</h3>
+<ol>
+<li>访问仓库Settings：https://github.com/你的用户名/你的用户名.github.io/settings/pages</li>
+<li>Source选择：Deploy from a branch</li>
+<li>Branch选择：main</li>
+<li>Folder选择：/ (root)</li>
+<li>点击Save</li>
+</ol>
+<h3 id="访问博客">访问博客</h3>
+<p>等待2-3分钟，访问：https://你的用户名.github.io/</p>
+<h2 id="踩坑记录">踩坑记录</h2>
+<h3 id="坑1ssh密钥格式问题">坑1：SSH密钥格式问题</h3>
+<p><strong>问题</strong>：GitHub拒绝ED25519格式的密钥</p>
+<p><strong>错误信息</strong>：</p>
+<pre tabindex="0"><code>Key is weak. GitHub recommends using ssh-keygen to generate a RSA key of at least 2048 bits.
+</code></pre><p><strong>解决</strong>：改用RSA 4096位密钥</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;你的邮箱&#34;</span>
+</span></span></code></pre></div><h3 id="坑2token权限不足">坑2：Token权限不足</h3>
+<p><strong>问题</strong>：Personal Access Token缺少workflow权限</p>
+<p><strong>错误信息</strong>：</p>
+<pre tabindex="0"><code>refusing to allow a Personal Access Token to create or update workflow
+</code></pre><p><strong>解决</strong>：</p>
+<ol>
+<li>删除旧token</li>
+<li>重新生成，勾选<code>repo</code>权限（不需要workflow）</li>
+<li>或者删除GitHub Actions配置文件</li>
+</ol>
+<h3 id="坑3主题兼容性问题">坑3：主题兼容性问题</h3>
+<p><strong>问题</strong>：Ananke主题的<code>toc</code>短代码导致构建失败</p>
+<p><strong>错误信息</strong>：</p>
+<pre tabindex="0"><code>Your site is having problems building: The tag toc shortcode on your site doesn&#39;t have a closing tag.
+</code></pre><p><strong>解决</strong>：移除主题，使用自定义布局</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rm -rf themes/ananke
+</span></span></code></pre></div><h3 id="坑4404错误">坑4：404错误</h3>
+<p><strong>问题</strong>：访问博客返回404</p>
+<p><strong>原因</strong>：GitHub Pages配置了<code>/public</code>子目录，但文件在根目录</p>
+<p><strong>解决</strong>：</p>
+<ol>
+<li>确保GitHub Pages配置为<code>/ (root)</code></li>
+<li>或将public目录内容复制到根目录</li>
+</ol>
+<h3 id="坑5缓存问题">坑5：缓存问题</h3>
+<p><strong>问题</strong>：修改后刷新还是旧版本</p>
+<p><strong>解决</strong>：</p>
+<ol>
+<li>硬刷新：Ctrl+F5</li>
+<li>清除浏览器缓存</li>
+<li>等待2-3分钟让GitHub Pages重新构建</li>
+</ol>
+<h2 id="自动化脚本">自动化脚本</h2>
+<h3 id="每日自动备份">每日自动备份</h3>
+<p>创建 <code>scripts/backup.sh</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>DATE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%Y%m%d<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>BACKUP_DIR<span style="color:#f92672">=</span>~/projects/my-blog/backup
+</span></span><span style="display:flex;"><span>SOURCE_DIR<span style="color:#f92672">=</span>~/projects/my-blog
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tar -czf $BACKUP_DIR/blog-backup-$DATE.tar.gz <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  $SOURCE_DIR/content <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  $SOURCE_DIR/layouts <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  $SOURCE_DIR/static <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  $SOURCE_DIR/hugo.toml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 保留最近30天</span>
+</span></span><span style="display:flex;"><span>find $BACKUP_DIR -name <span style="color:#e6db74">&#34;blog-backup-*.tar.gz&#34;</span> -mtime +30 -delete
+</span></span></code></pre></div><p>添加到定时任务：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 编辑crontab</span>
+</span></span><span style="display:flex;"><span>crontab -e
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加：每天凌晨2点备份</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span> * * * /root/projects/my-blog/scripts/backup.sh
+</span></span></code></pre></div><h3 id="每小时监控">每小时监控</h3>
+<p>创建 <code>scripts/monitor.sh</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>LOG_FILE<span style="color:#f92672">=</span>~/projects/my-blog/scripts/monitor.log
+</span></span><span style="display:flex;"><span>URL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://你的用户名.github.io/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>STATUS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s -o /dev/null -w <span style="color:#e6db74">&#34;%{http_code}&#34;</span> $URL<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $STATUS -eq <span style="color:#ae81ff">200</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">] ✅ 博客正常&#34;</span> &gt;&gt; $LOG_FILE
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">] ❌ 博客异常 (HTTP </span>$STATUS<span style="color:#e6db74">)&#34;</span> &gt;&gt; $LOG_FILE
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>添加到定时任务：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 每小时检查</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> * * * * /root/projects/my-blog/scripts/monitor.sh
+</span></span></code></pre></div><h2 id="博客装修">博客装修</h2>
+<h3 id="添加渐变背景">添加渐变背景</h3>
+<p>编辑 <code>layouts/index.html</code>，添加CSS：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: linear-gradient(<span style="color:#ae81ff">135</span><span style="color:#66d9ef">deg</span>, <span style="color:#ae81ff">#667eea</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#764ba2</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">vh</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="添加卡片布局">添加卡片布局</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">container</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">900</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">header</span><span style="color:#f92672">,</span> <span style="color:#f92672">main</span><span style="color:#f92672">,</span> <span style="color:#f92672">article</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">white</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="添加动画效果">添加动画效果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">article</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: translateX(<span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">102</span>, <span style="color:#ae81ff">126</span>, <span style="color:#ae81ff">234</span>, <span style="color:#ae81ff">0.2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">all</span> <span style="color:#ae81ff">0.3</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="写作流程">写作流程</h2>
+<h3 id="新建文章">新建文章</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建文章</span>
+</span></span><span style="display:flex;"><span>hugo new posts/my-new-post.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 编辑文章</span>
+</span></span><span style="display:flex;"><span>vim content/posts/my-new-post.md
+</span></span></code></pre></div><h3 id="本地预览-1">本地预览</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 启动开发服务器</span>
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 访问 http://localhost:1313</span>
+</span></span></code></pre></div><h3 id="发布文章">发布文章</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 构建</span>
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 如果不使用GitHub Actions，需要复制文件</span>
+</span></span><span style="display:flex;"><span>cp -r public/* ./
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提交并推送</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add new post&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div><h2 id="高级功能可选">高级功能（可选）</h2>
+<h3 id="添加评论系统">添加评论系统</h3>
+<p>使用 <a href="https://giscus.app/">Giscus</a>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://giscus.app/client.js&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-repo</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的用户名/你的用户名.github.io&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-repo-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-category</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Announcements&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-category-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-mapping</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pathname&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-strict</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-reactions-enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-emit-metadata</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-input-position</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bottom&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;preferred_color_scheme&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data-lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zh-CN&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">async</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h3 id="添加google-analytics">添加Google Analytics</h3>
+<p>在 <code>layouts/partials/analytics.html</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Google Analytics --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">async</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">dataLayer</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">dataLayer</span> <span style="color:#f92672">||</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gtag</span>(){<span style="color:#a6e22e">dataLayer</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arguments</span>);}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gtag</span>(<span style="color:#e6db74">&#39;js&#39;</span>, <span style="color:#66d9ef">new</span> Date());
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gtag</span>(<span style="color:#e6db74">&#39;config&#39;</span>, <span style="color:#e6db74">&#39;G-XXXXXXXXXX&#39;</span>);
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h3 id="添加rss订阅">添加RSS订阅</h3>
+<p>在 <code>hugo.toml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">outputs</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">section</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>]
+</span></span></code></pre></div><h2 id="性能优化">性能优化</h2>
+<h3 id="图片优化">图片优化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 转换为WebP格式</span>
+</span></span><span style="display:flex;"><span>cwebp -q <span style="color:#ae81ff">80</span> input.jpg -o output.webp
+</span></span></code></pre></div><h3 id="启用压缩">启用压缩</h3>
+<p>在 <code>hugo.toml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">minify</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">minifyOutput</span> = <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><h3 id="cdn加速">CDN加速</h3>
+<p>GitHub Pages自带全球CDN，无需额外配置。</p>
+<h2 id="总结">总结</h2>
+<h3 id="完成清单">完成清单</h3>
+<ul>
+<li>✅ 安装Hugo</li>
+<li>✅ 创建博客项目</li>
+<li>✅ 配置博客信息</li>
+<li>✅ 创建内容</li>
+<li>✅ 自定义设计</li>
+<li>✅ 部署到GitHub Pages</li>
+<li>✅ 配置自动化脚本</li>
+</ul>
+<h3 id="最终效果">最终效果</h3>
+<ul>
+<li>🌐 博客地址：https://atomai123.github.io/</li>
+<li>⚡ 构建时间：~26ms</li>
+<li>📄 页面数量：11个</li>
+<li>💾 自动备份：每天凌晨2点</li>
+<li>🔍 自动监控：每小时检查</li>
+</ul>
+<h3 id="学到的经验">学到的经验</h3>
+<ol>
+<li><strong>文档很重要</strong> - 遇到问题时，官方文档是最好的参考</li>
+<li><strong>耐心是关键</strong> - 部署可能需要多次尝试</li>
+<li><strong>自动化很值</strong> - 花时间配置自动化，长期收益很大</li>
+<li><strong>简单最美</strong> - 不需要复杂主题，简洁的布局反而更好</li>
+</ol>
+<h2 id="下一步">下一步</h2>
+<h3 id="短期计划">短期计划</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 添加评论系统</li>
+<li><input disabled="" type="checkbox"> 添加暗黑模式</li>
+<li><input disabled="" type="checkbox"> 优化SEO</li>
+<li><input disabled="" type="checkbox"> 添加更多文章</li>
+</ul>
+<h3 id="长期规划">长期规划</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 添加搜索功能</li>
+<li><input disabled="" type="checkbox"> 多语言支持</li>
+<li><input disabled="" type="checkbox"> 邮件订阅</li>
+<li><input disabled="" type="checkbox"> 性能监控</li>
+</ul>
+<h2 id="参考资源">参考资源</h2>
+<ul>
+<li><a href="https://gohugo.io/documentation/">Hugo官方文档</a></li>
+<li><a href="https://docs.github.com/pages">GitHub Pages文档</a></li>
+<li><a href="https://www.markdownguide.org/">Markdown语法指南</a></li>
+<li><a href="https://git-scm.com/docs/gittutorial">Git教程</a></li>
+</ul>
+<h2 id="结语">结语</h2>
+<p>搭建博客的过程虽然遇到了一些问题，但最终都解决了。现在我有了一个：</p>
+<ul>
+<li>🚀 快速的静态博客</li>
+<li>🎨 现代化的设计</li>
+<li>📱 完美的移动端适配</li>
+<li>⚡ 自动化的运维</li>
+</ul>
+<p>如果你也想搭建博客，希望这篇教程能帮到你！</p>
+<p><strong>有问题？欢迎在评论区留言，或者直接联系我！</strong></p>
+<hr>
+<p><strong>相关文章</strong>：</p>
+<ul>
+<li><a href="/posts/how-i-built-this-blog/">使用Hugo和GitHub Pages搭建个人博客</a></li>
+<li><a href="/posts/welcome/">欢迎来到原子君的技术博客</a></li>
+</ul>
+<p><strong>最后更新：2026-02-10</strong></p>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 原子君的技术博客 | Powered by 🤖 Hugo</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="https://github.com/atomai123">GitHub</a> | 
+                Built with ❤️
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
