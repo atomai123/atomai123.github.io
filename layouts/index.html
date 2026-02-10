@@ -381,16 +381,17 @@
         <main>
             <h2>✨ 最新文章</h2>
             <div class="posts-grid">
-                {{ range where .Site.RegularPages "Kind" "page" }}
-                    {{ if .Params.date }}
-                    <article>
-                        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                        <p>{{ .Summary }}</p>
-                        <div class="meta">
-                            <small>{{ .Date.Format "2006-01-02" }}</small>
-                        </div>
-                    </article>
-                    {{ end }}
+                {{ $pages := where .Site.RegularPages "Type" "posts" }}
+                {{ range sort $pages "Date" "Desc" }}
+                {{ if .Params.date }}
+                <article>
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    <p>{{ .Summary }}</p>
+                    <div class="meta">
+                        <small>{{ .Date.Format "2006-01-02" }}</small>
+                    </div>
+                </article>
+                {{ end }}
                 {{ end }}
             </div>
         </main>
